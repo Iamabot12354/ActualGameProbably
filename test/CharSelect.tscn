@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bv0m3677s4f3p"]
+
+[ext_resource type="Script" uid="uid://bf7lmnya7rkgv" path="res://char_select.gd" id="1_mikjp"]
+[ext_resource type="Texture2D" uid="uid://dmdca1ig3mm1n" path="res://Assets/JOIN BANNER.png" id="2_f6h8w"]
+
+[node name="Node2D" type="Node2D" unique_id=428688244]
+script = ExtResource("1_mikjp")
+
+[node name="JoinBanner" type="Sprite2D" parent="." unique_id=102301614]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(141, 558)
+scale = Vector2(0.15246637, 0.15246637)
+texture = ExtResource("2_f6h8w")
+
+[node name="JoinBanner2" type="Sprite2D" parent="." unique_id=1256403831]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(429.00003, 558)
+scale = Vector2(0.15246637, 0.15246637)
+texture = ExtResource("2_f6h8w")
+
+[node name="JoinBanner3" type="Sprite2D" parent="." unique_id=1894230213]
+modulate = Color(0, 0.3372549, 1, 1)
+position = Vector2(713.435, 558)
+scale = Vector2(0.15246637, 0.15246637)
+texture = ExtResource("2_f6h8w")
+
+[node name="JoinBanner4" type="Sprite2D" parent="." unique_id=1868704889]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(1001.435, 558)
+scale = Vector2(0.15246637, 0.15246637)
+texture = ExtResource("2_f6h8w")
