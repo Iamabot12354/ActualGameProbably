@@ -1,11 +1,15 @@
 extends Node
 
 var Players = 0
-var Player1 = null
-var Player2 = null
-var Player3 = null
-var Player4 = null
+
 var PlayerList = []
+
+var PlayerChars = []
+
+
+var Scene
+
+var Ready = 0
 
 
 # Called when the node enters the scene tree for the first time.

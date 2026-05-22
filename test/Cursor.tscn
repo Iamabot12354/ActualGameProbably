@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://bsm217pqq0vlp"]
 
+[ext_resource type="Script" uid="uid://dxvdp8lvc145v" path="res://cursor.gd" id="1_e3af5"]
 [ext_resource type="Texture2D" uid="uid://d02cfq1k17hs" path="res://Assets/Cursor/tile_0027.png" id="1_ux3mw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3af5"]
 
-[node name="Node2D" type="Node2D" unique_id=1914998812]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=822517617]
+motion_mode = 1
+script = ExtResource("1_e3af5")
+Sense = 200
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1719100308]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1431373664]
 texture_filter = 1
-position = Vector2(9.999999, 10.999999)
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("1_ux3mw")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2118102776]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1689910814]
 shape = SubResource("RectangleShape2D_e3af5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=647770615]
+texture_filter = 1
+position = Vector2(9.5, 13.5)
+scale = Vector2(3.312499, 3.312499)
+texture = ExtResource("1_ux3mw")

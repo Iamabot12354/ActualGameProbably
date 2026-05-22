@@ -1,31 +1,66 @@
 [gd_scene format=3 uid="uid://bv0m3677s4f3p"]
 
 [ext_resource type="Script" uid="uid://bf7lmnya7rkgv" path="res://char_select.gd" id="1_mikjp"]
-[ext_resource type="Texture2D" uid="uid://dmdca1ig3mm1n" path="res://Assets/JOIN BANNER.png" id="2_f6h8w"]
+[ext_resource type="PackedScene" uid="uid://bsm217pqq0vlp" path="res://Cursor.tscn" id="2_f6h8w"]
+[ext_resource type="PackedScene" uid="uid://dj7fvj5btqkm3" path="res://PlayerCard.tscn" id="3_iaagk"]
+[ext_resource type="Texture2D" uid="uid://d3okc7l5ns3qb" path="res://Ready.aseprite" id="4_tv3mf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6h8w"]
+size = Vector2(2353, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaagk"]
+size = Vector2(92, 970)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tv3mf"]
+size = Vector2(1722.5, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlqq6"]
+size = Vector2(182, 1004)
 
 [node name="Node2D" type="Node2D" unique_id=428688244]
 script = ExtResource("1_mikjp")
+Pointer = ExtResource("2_f6h8w")
 
-[node name="JoinBanner" type="Sprite2D" parent="." unique_id=102301614]
-modulate = Color(1, 1, 0, 1)
-position = Vector2(141, 558)
-scale = Vector2(0.15246637, 0.15246637)
-texture = ExtResource("2_f6h8w")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1403867548]
 
-[node name="JoinBanner2" type="Sprite2D" parent="." unique_id=1256403831]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(429.00003, 558)
-scale = Vector2(0.15246637, 0.15246637)
-texture = ExtResource("2_f6h8w")
+[node name="Cards" type="Node" parent="." unique_id=1264634451]
 
-[node name="JoinBanner3" type="Sprite2D" parent="." unique_id=1894230213]
-modulate = Color(0, 0.3372549, 1, 1)
-position = Vector2(713.435, 558)
-scale = Vector2(0.15246637, 0.15246637)
-texture = ExtResource("2_f6h8w")
+[node name="Node2D" parent="Cards" unique_id=1390754283 instance=ExtResource("3_iaagk")]
+position = Vector2(68, 80)
 
-[node name="JoinBanner4" type="Sprite2D" parent="." unique_id=1868704889]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(1001.435, 558)
-scale = Vector2(0.15246637, 0.15246637)
-texture = ExtResource("2_f6h8w")
+[node name="Box" type="Node" parent="." unique_id=1362073470]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Box" unique_id=1596395996]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D" unique_id=180174699]
+position = Vector2(771.5, -52)
+shape = SubResource("RectangleShape2D_f6h8w")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Box" unique_id=694729776]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D2" unique_id=19389781]
+position = Vector2(-46, 355)
+shape = SubResource("RectangleShape2D_iaagk")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Box" unique_id=239481745]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D3" unique_id=655141954]
+position = Vector2(661.75, 686)
+shape = SubResource("RectangleShape2D_tv3mf")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Box" unique_id=1357894983]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D4" unique_id=1965273933]
+position = Vector2(1243, 358)
+shape = SubResource("RectangleShape2D_jlqq6")
+
+[node name="Button" type="Button" parent="." unique_id=865500185]
+texture_filter = 1
+offset_left = -21.0
+offset_top = 510.0
+offset_right = 182.0
+offset_bottom = 689.0
+icon = ExtResource("4_tv3mf")
+flat = true
+icon_alignment = 1
+expand_icon = true
