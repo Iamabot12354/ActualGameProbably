@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dk2oousxjvmui"]
 
+[ext_resource type="Texture2D" uid="uid://coqokxxqm6iur" path="res://Gemini_Generated_Image_jzru5wjzru5wjzru.png" id="1_52bhu"]
 [ext_resource type="Script" uid="uid://djo36o5y4iw4l" path="res://Start/Start.gd" id="1_r305v"]
 
 [node name="Control" type="Control" unique_id=1579475575]
@@ -10,10 +11,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="GeminiGeneratedImageJzru5Wjzru5Wjzru" type="Sprite2D" parent="." unique_id=441643655]
+position = Vector2(576.48956, 324.25003)
+scale = Vector2(0.41824883, 0.4215495)
+texture = ExtResource("1_52bhu")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=619805453]
 layout_mode = 0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_left = 523.0
+offset_top = 352.0
+offset_right = 625.0
+offset_bottom = 471.0
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1803632736]
 layout_mode = 2
