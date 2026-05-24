@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bq4qy1x5tpyyk"]
+
+[ext_resource type="Script" uid="uid://dy038x5m8awf2" path="res://Health Overlay/canvas_layer.gd" id="1_4x1jy"]
+[ext_resource type="Texture2D" uid="uid://chtwharbqyoju" path="res://Health Overlay/Gemini_Generated_Image_4sr5bc4sr5bc4sr5-removebg-preview.png" id="1_j38xf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x1jy"]
+bg_color = Color(0.18717611, 0.18717617, 0.18717602, 1)
+shadow_size = 5
+
+[sub_resource type="FontVariation" id="FontVariation_4x1jy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iddkm"]
+bg_color = Color(0.17283267, 0.17283267, 0.17283258, 1)
+corner_detail = 9
+shadow_size = 2
+
+[node name="RainbowMan" type="Node2D" unique_id=281492168]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1489944206]
+offset = Vector2(50, 50)
+transform = Transform2D(1, 0, 0, 1, 50, 50)
+script = ExtResource("1_4x1jy")
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=440347353]
+offset_right = 70.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4x1jy")
+
+[node name="GeminiGeneratedImage4Sr5Bc4Sr5Bc4Sr5RemovebgPreview" type="Sprite2D" parent="CanvasLayer" unique_id=2011405875]
+position = Vector2(34.999992, 34.999996)
+scale = Vector2(0.13599998, 0.13599998)
+texture = ExtResource("1_j38xf")
+flip_h = true
+
+[node name="health_bar" type="ProgressBar" parent="CanvasLayer" unique_id=1175521634]
+modulate = Color(0, 0.8040907, 0.8047688, 1)
+offset_left = 2.0
+offset_top = 70.0
+offset_right = 68.0
+offset_bottom = 94.0
+theme_override_fonts/font = SubResource("FontVariation_4x1jy")
+theme_override_styles/background = SubResource("StyleBoxFlat_iddkm")
+step = 1.0
