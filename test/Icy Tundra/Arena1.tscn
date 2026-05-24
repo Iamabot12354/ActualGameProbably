@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://c2h81ht3ieql7"]
+
+[ext_resource type="Texture2D" uid="uid://bnwuv60auqpig" path="res://Icy Tundra/Gemini_Generated_Image_rgnbvbrgnbvbrgnb.png" id="1_wwfjf"]
+[ext_resource type="PackedScene" uid="uid://r1xyk2hpf2sf" path="res://Players/Player.tscn" id="2_db8a0"]
+[ext_resource type="PackedScene" uid="uid://cyxmywc1uqlkn" path="res://Spawns/Player1Spawn.tscn" id="3_vhi1u"]
+[ext_resource type="PackedScene" uid="uid://d4jpnmn4tw6ln" path="res://Spawns/Player2Spawn.tscn" id="4_ney3g"]
+[ext_resource type="PackedScene" uid="uid://duv2pikkb65nf" path="res://Spawns/Player3Spawn.tscn" id="5_em6nm"]
+[ext_resource type="PackedScene" uid="uid://bkcrm450mqvix" path="res://Spawns/Player4Spawn.tscn" id="6_wya7v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ahp8"]
+size = Vector2(0.5590296, 0.08380735)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4idoe"]
+size = Vector2(500.5, 4.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4xf6"]
+size = Vector2(149, 5.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5k5y5"]
+size = Vector2(189, 50.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmmmp"]
+size = Vector2(189, 50.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1c4tb"]
+size = Vector2(329.5, 3)
+
+[node name="Node2D" type="Node2D" unique_id=2029660602]
+
+[node name="GeminiGeneratedImageRgnbvbrgnbvbrgnb" type="Sprite2D" parent="." unique_id=1368683691]
+position = Vector2(575.99994, 330)
+scale = Vector2(0.42074507, 0.42091835)
+texture = ExtResource("1_wwfjf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1646575472]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=198442413]
+position = Vector2(577.6875, 419.3125)
+scale = Vector2(963.5, 88)
+shape = SubResource("RectangleShape2D_7ahp8")
+one_way_collision = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1851281518]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=290521826]
+position = Vector2(753.75, 282.9375)
+shape = SubResource("RectangleShape2D_4idoe")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1631651611]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1999673228]
+position = Vector2(281.5, 284.375)
+shape = SubResource("RectangleShape2D_k4xf6")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=343605191]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1563888801]
+position = Vector2(752.5, 650)
+shape = SubResource("RectangleShape2D_5k5y5")
+one_way_collision = true
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=832278698]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=1294405207]
+position = Vector2(405.5, 648)
+shape = SubResource("RectangleShape2D_wmmmp")
+one_way_collision = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=945454049]
+position = Vector2(0, -30)
+
+[node name="Collision 1" type="CollisionShape2D" parent="StaticBody2D4" unique_id=862591196]
+position = Vector2(578.25, 161.5)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_1c4tb")
+one_way_collision = true
+
+[node name="CharacterBody2D" parent="." unique_id=1455943417 instance=ExtResource("2_db8a0")]
+position = Vector2(445, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=310088420]
+
+[node name="Player1Spawn" parent="." unique_id=1044477353 instance=ExtResource("3_vhi1u")]
+position = Vector2(238, 450)
+
+[node name="Player2Spawn" parent="." unique_id=870532825 instance=ExtResource("4_ney3g")]
+position = Vector2(914, 450)
+
+[node name="Player3Spawn" parent="." unique_id=977434403 instance=ExtResource("5_em6nm")]
+position = Vector2(122, 250)
+
+[node name="Player4Spawn" parent="." unique_id=1436987136 instance=ExtResource("6_wya7v")]
+position = Vector2(1030, 250)
+
+[node name="Player1Spawn2" parent="." unique_id=1628165747 instance=ExtResource("3_vhi1u")]
+position = Vector2(406, 582)
+
+[node name="Player2Spawn2" parent="." unique_id=1270360961 instance=ExtResource("4_ney3g")]
+position = Vector2(576, 110)
+
+[node name="Player3Spawn2" parent="." unique_id=299314973 instance=ExtResource("5_em6nm")]
+position = Vector2(273, 235)
+
+[node name="Player4Spawn2" parent="." unique_id=1485251628 instance=ExtResource("6_wya7v")]
+position = Vector2(702, 403)
