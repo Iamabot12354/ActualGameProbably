@@ -9,6 +9,7 @@ var jump_num = 0
 var max_health = 100
 var current_health = 100
 var health_regen = 1
+var respawn_count = 0
 var anim_over = false
 
 func _physics_process(delta: float) -> void:
@@ -44,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor() or jump_num < 2:
 			velocity.y = JUMP_VELOCITY - 100
 			jump_num += 1
-			take_damage(2)
+			take_damage(10)
 			print(current_health)
 		
 	if Input.is_action_just_pressed("RMB") and not anim_over:
@@ -54,8 +55,15 @@ func _physics_process(delta: float) -> void:
 		await anim.animation_finished
 		anim_over = false
 		
+		get_downed_animation()
+		
+	if current_health == 0:
+		
+		death_animation()
+		remove_child($AnimatedSprite2D)
 		
 
+		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("A", "D")
@@ -77,3 +85,19 @@ func take_damage(amount: int):
 		current_health = 0
 		
 	Globals.health_changed.emit(current_health)
+	
+func get_downed_animation():
+	
+	anim_over = true
+	anim.play("knockback")
+	
+	await anim.animation_finished
+	anim_over = false
+
+func death_animation():
+	
+	anim_over = true
+	anim.play("knockback")
+	
+	await anim.animation_finished
+	anim_over = false
