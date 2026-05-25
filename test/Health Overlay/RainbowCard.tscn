@@ -17,8 +17,6 @@ shadow_size = 2
 [node name="RainbowMan" type="Node2D" unique_id=281492168]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1489944206]
-offset = Vector2(50, 50)
-transform = Transform2D(1, 0, 0, 1, 50, 50)
 script = ExtResource("1_4x1jy")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=440347353]

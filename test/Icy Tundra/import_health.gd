@@ -1,8 +1,9 @@
-extends Node
+extends Node2D
 
 @onready var ui_scene = preload("res://Health Overlay/RainbowCard.tscn")
 
 func _ready() -> void:
+	
 	show_ui()
 
 func show_ui():
