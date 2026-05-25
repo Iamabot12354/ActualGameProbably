@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ea5ye04u876s"
+path="res://.godot/imported/Player Punch 64x64.aseprite-3b7018788f978cedaeb4fe654aa03230.res"
+
+[deps]
+
+source_file="res://Ability/Char1/Punch/Punch/Player Punch 64x64.aseprite"
+dest_files=["res://.godot/imported/Player Punch 64x64.aseprite-3b7018788f978cedaeb4fe654aa03230.res"]
+
+[params]
+

@@ -13,6 +13,7 @@ var Scene
 
 var Ready = 0
 
+signal health_changed(new_health: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
