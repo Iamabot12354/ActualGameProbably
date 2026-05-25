@@ -6,6 +6,8 @@ var control
 var colour
 var Selected = false
 var char = null
+var InArea = false
+var newArea : Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,13 +22,13 @@ func _ready() -> void:
 		colour = Color(0.0, 1.0, 0.0, 1.0)
 	
 	$Sprite2D.self_modulate = colour
-	control = Globals.PlayerList[PlayerNum]
+	control = Globals.PlayerList[PlayerNum]   
 
 func Move(delta) -> void:
 	if Selected == false:
 		if control == "Keyboard":
 			position = get_global_mouse_position()
-			Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+			#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 			
 			
 		elif control == "Controller1":
@@ -68,51 +70,39 @@ func Move(delta) -> void:
 		
 		move_and_slide()
 
+func Select_deselect(Area : Area2D) -> void:
 
-func Select_deselect() -> void:
-	if Input.is_action_just_released("Controller1Select") and control == "Controller1":
+	if Input.is_action_just_released("Controller1Select") and control == "Controller1" or Input.is_action_just_released("Controller2Select") and control == "Controller2" or Input.is_action_just_released("Controller3Select") and control == "Controller3" or Input.is_action_just_released("Controller4Select") and control == "Controller4" or Input.is_action_just_released("MouseDown") and control == "Keyboard":
 		if Selected == false:
 			Selected = true
 			Globals.Ready += 1
+			var parent = Area.get_parent()
+			Globals.PlayerChars[PlayerNum] = parent.charecter
+			print(Globals.PlayerChars)
+			
+			
 		else:
 			Selected = false
 			Globals.Ready -= 1
-	
-	if Input.is_action_just_released("Controller2Select") and control == "Controller2":
-		if Selected == false:
-			Selected = true
-			Globals.Ready += 1
-		else:
-			Selected = false
-			Globals.Ready -= 1
-
-	if Input.is_action_just_released("Controller3Select") and control == "Controller3":
-		if Selected == false:
-			Selected = true
-			Globals.Ready += 1
-		else:
-			Selected = false
-			Globals.Ready -= 1
-
-	if Input.is_action_just_released("Controller4Select") and control == "Controller4":
-		if Selected == false:
-			Selected = true
-			Globals.Ready += 1
-		else:
-			Selected = false
-			Globals.Ready -= 1
-
-	if Input.is_action_just_released("MouseDown") and control == "Keyboard":
-		if Selected == false:
-			Selected = true
-			Globals.Ready += 1
-		else:
-			Selected = false
-			Globals.Ready -= 1
-
+			Globals.PlayerChars[PlayerNum] = null
+		
+		
 
 func _process(delta: float) -> void:
-	Select_deselect()
+	if InArea:
+		Select_deselect(newArea)
+		
 	Move(delta)
 	
 	
+	
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	InArea = true
+	newArea = area
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	InArea = false

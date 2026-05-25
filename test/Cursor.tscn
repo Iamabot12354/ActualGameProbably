@@ -19,3 +19,12 @@ texture_filter = 1
 position = Vector2(9.5, 13.5)
 scale = Vector2(3.312499, 3.312499)
 texture = ExtResource("1_ux3mw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=35264441]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=151460315]
+texture_filter = 1
+shape = SubResource("RectangleShape2D_e3af5")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

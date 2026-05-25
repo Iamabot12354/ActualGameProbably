@@ -4,7 +4,9 @@ var Players = 0
 
 var PlayerList = []
 
-var PlayerChars = []
+var PlayerChars = [null, null, null, null]
+
+
 
 
 var Scene

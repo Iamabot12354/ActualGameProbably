@@ -6,6 +6,7 @@ func _ready() -> void:
 	Globals.Scene = "Start"
 	grab_focus()
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#region AddPlayer
@@ -53,7 +54,7 @@ func _process(delta: float) -> void:
 		Globals.PlayerList.erase("Controller4")
 	
 	#endregion
-	print(Globals.PlayerList)
+	
 func _on_pressed() -> void:
 	
 	
@@ -62,11 +63,11 @@ func _on_pressed() -> void:
 	
 		
 	
-	if len(Globals.PlayerList) >= 2:
-		get_tree().change_scene_to_file("res://CharSelect.tscn")
-	else:
-		$"../../Label".show()
-		$"../../Timer".start()
+	#if len(Globals.PlayerList) >= 2:
+	get_tree().change_scene_to_file("res://CharSelect.tscn")
+	#else:
+		#$"../../Label".show()
+		#$"../../Timer".start()
 	
 	
 
