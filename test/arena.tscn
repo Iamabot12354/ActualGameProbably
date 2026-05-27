@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkuvcbnm78q2f"]
 
-[ext_resource type="PackedScene" uid="uid://r1xyk2hpf2sf" path="res://Players/Player.tscn" id="1_ubfh8"]
+[ext_resource type="PackedScene" uid="uid://c0d7poryl7yjl" path="res://Frog.tscn" id="1_ubfh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_444vf"]
 size = Vector2(798, 117)
@@ -13,5 +13,5 @@ size = Vector2(798, 117)
 position = Vector2(555, 577.5)
 shape = SubResource("RectangleShape2D_444vf")
 
-[node name="CharacterBody2D" parent="StaticBody2D" unique_id=1455943417 instance=ExtResource("1_ubfh8")]
-position = Vector2(564, 419)
+[node name="CharacterBody2D" parent="." unique_id=1182257484 instance=ExtResource("1_ubfh8")]
+position = Vector2(568, 375)

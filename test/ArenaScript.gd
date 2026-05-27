@@ -9,13 +9,13 @@ extends Node
 #y Scale = 32.4
 
 var spawns = [$Player1Spawn, $Player2Spawn, $Player3Spawn, $Player4Spawn]
-var scene = preload("res://Player.tscn")
+var scene = preload("res://Players/Player.tscn")
 @export var Player : PackedScene = scene
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Collision.Scale = Vector2(57.6, 32.4)
+	#Collision.scale = Vector2(57.6, 32.4)
 	for i in range(len(Globals.PlayerList)):
 		var player_Instance = Player.instantiate()
 		player_Instance.set("PlayerNum", i)
