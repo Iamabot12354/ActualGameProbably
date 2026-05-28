@@ -475,14 +475,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oudfo"]
-size = Vector2(14, 29.75)
+size = Vector2(9.75, 16.375)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1455943417]
 script = ExtResource("1_kpjcp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=621479482]
 texture_filter = 1
-scale = Vector2(4, 4)
+position = Vector2(7, -3)
+scale = Vector2(2.3125, 2.3125)
 sprite_frames = SubResource("SpriteFrames_l6ohk")
 animation = &"damage"
 frame_progress = 0.51693696
@@ -505,6 +506,5 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1775720873]
-position = Vector2(0, 4.5)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_oudfo")

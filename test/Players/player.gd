@@ -13,6 +13,7 @@ var respawn_count = 0
 var anim_over = false
 
 func _physics_process(delta: float) -> void:
+	
 	if not anim_over:
 		if is_on_floor():
 			# If we are standing still, play idle
@@ -45,8 +46,6 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor() or jump_num < 2:
 			velocity.y = JUMP_VELOCITY - 100
 			jump_num += 1
-			take_damage(10)
-			print(current_health)
 		
 	if Input.is_action_just_pressed("RMB") and not anim_over:
 		anim_over = true
@@ -60,7 +59,7 @@ func _physics_process(delta: float) -> void:
 	if current_health == 0:
 		
 		death_animation()
-		remove_child($AnimatedSprite2D)
+		
 		
 
 		
@@ -101,3 +100,5 @@ func death_animation():
 	
 	await anim.animation_finished
 	anim_over = false
+
+#func 

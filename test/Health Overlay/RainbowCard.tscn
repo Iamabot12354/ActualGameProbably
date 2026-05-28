@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bq4qy1x5tpyyk"]
 
 [ext_resource type="Script" uid="uid://dy038x5m8awf2" path="res://Health Overlay/canvas_layer.gd" id="1_4x1jy"]
-[ext_resource type="Texture2D" uid="uid://chtwharbqyoju" path="res://Health Overlay/Gemini_Generated_Image_4sr5bc4sr5bc4sr5-removebg-preview.png" id="1_j38xf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x1jy"]
 bg_color = Color(0.18717611, 0.18717617, 0.18717602, 1)
@@ -23,12 +22,6 @@ script = ExtResource("1_4x1jy")
 offset_right = 70.0
 offset_bottom = 96.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4x1jy")
-
-[node name="GeminiGeneratedImage4Sr5Bc4Sr5Bc4Sr5RemovebgPreview" type="Sprite2D" parent="CanvasLayer" unique_id=2011405875]
-position = Vector2(34.999992, 34.999996)
-scale = Vector2(0.13599998, 0.13599998)
-texture = ExtResource("1_j38xf")
-flip_h = true
 
 [node name="health_bar" type="ProgressBar" parent="CanvasLayer" unique_id=1175521634]
 modulate = Color(0, 0.8040907, 0.8047688, 1)

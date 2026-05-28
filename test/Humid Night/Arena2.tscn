@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://c14c3c4x8ttxj"]
+
+[ext_resource type="Script" uid="uid://bad2m30blqdv" path="res://Humid Night/ArenaScript.gd" id="1_c42xw"]
+[ext_resource type="Texture2D" uid="uid://bvfimaka6i3oe" path="res://Humid Night/Gemini_Generated_Image_5dhzf15dhzf15dhz.png" id="2_4hf14"]
+[ext_resource type="Texture2D" uid="uid://cxbily0mt1umm" path="res://Humid Night/Gemini_Generated_Image_ks3dneks3dneks3d.png" id="2_yt4r0"]
+[ext_resource type="Texture2D" uid="uid://0dnlvou174wb" path="res://Humid Night/Gemini_Generated_Image_2gif5e2gif5e2gif.png" id="4_2xwqu"]
+[ext_resource type="PackedScene" uid="uid://r1xyk2hpf2sf" path="res://Players/Player.tscn" id="4_dfj8o"]
+[ext_resource type="PackedScene" uid="uid://cyxmywc1uqlkn" path="res://Spawns/Player1Spawn.tscn" id="5_8w5c3"]
+[ext_resource type="PackedScene" uid="uid://d4jpnmn4tw6ln" path="res://Spawns/Player2Spawn.tscn" id="6_b264y"]
+[ext_resource type="PackedScene" uid="uid://duv2pikkb65nf" path="res://Spawns/Player3Spawn.tscn" id="7_i3vbb"]
+[ext_resource type="PackedScene" uid="uid://bkcrm450mqvix" path="res://Spawns/Player4Spawn.tscn" id="8_nhgjk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhi1u"]
+size = Vector2(1152, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em6nm"]
+size = Vector2(1978, 1286.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ahp8"]
+size = Vector2(0.801586, 0.09570293)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4idoe"]
+size = Vector2(116.14844, 5.7334595)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1c4tb"]
+size = Vector2(243, 4.5)
+
+[node name="Node2D" type="Node2D" unique_id=2029660602]
+script = ExtResource("1_c42xw")
+
+[node name="GeminiGeneratedImageKs3Dneks3Dneks3d" type="Sprite2D" parent="." unique_id=1004698455]
+position = Vector2(580, 86)
+texture = ExtResource("2_yt4r0")
+
+[node name="GeminiGeneratedImage5Dhzf15Dhzf15Dhz" type="Sprite2D" parent="." unique_id=520909908]
+position = Vector2(619, 296)
+scale = Vector2(0.5654762, 0.5654762)
+texture = ExtResource("2_4hf14")
+
+[node name="GeminiGeneratedImage2Gif5e2Gif5e2Gif" type="Sprite2D" parent="." unique_id=1796549422]
+position = Vector2(577, 1306)
+texture = ExtResource("4_2xwqu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1114037160]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=343848273]
+position = Vector2(576, 324)
+shape = SubResource("RectangleShape2D_vhi1u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=543313512]
+
+[node name="Image" type="Sprite2D" parent="." unique_id=154730081]
+position = Vector2(577, 290)
+scale = Vector2(0.715379, 0.7153791)
+
+[node name="GeminiGeneratedImageFbc94Afbc94Afbc9" type="Sprite2D" parent="." unique_id=435949330]
+position = Vector2(578, 498)
+scale = Vector2(0.71556115, 0.7155612)
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"pending_changes": {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "",
+"source_uid": -1
+}
+}
+
+[node name="DeathFloor" type="Area2D" parent="." unique_id=684512777]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathFloor" unique_id=1633132890]
+position = Vector2(625, 1601)
+shape = SubResource("RectangleShape2D_em6nm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1646575472]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=198442413]
+position = Vector2(628.83594, 461.78906)
+scale = Vector2(963.5, 88)
+shape = SubResource("RectangleShape2D_7ahp8")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1851281518]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=290521826]
+position = Vector2(898.0402, 316.63684)
+rotation = -0.12915437
+shape = SubResource("RectangleShape2D_4idoe")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=945454049]
+position = Vector2(0, -30)
+
+[node name="Collision 1" type="CollisionShape2D" parent="StaticBody2D4" unique_id=862591196]
+position = Vector2(390.99994, 229.99998)
+rotation = 0.05235988
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_1c4tb")
+one_way_collision = true
+
+[node name="Collision 2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1551853387]
+position = Vector2(335, 149.99998)
+rotation = 0.05235988
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_1c4tb")
+one_way_collision = true
+
+[node name="CharacterBody2D" parent="." unique_id=1455943417 groups=["Player"] instance=ExtResource("4_dfj8o")]
+position = Vector2(555, 376)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=310088420]
+
+[node name="Player1Spawn" parent="." unique_id=1044477353 instance=ExtResource("5_8w5c3")]
+position = Vector2(450, 72)
+
+[node name="Player2Spawn" parent="." unique_id=870532825 instance=ExtResource("6_b264y")]
+position = Vector2(879, 161)
+
+[node name="Player3Spawn" parent="." unique_id=977434403 instance=ExtResource("7_i3vbb")]
+position = Vector2(443, 304)
+
+[node name="Player4Spawn" parent="." unique_id=1436987136 instance=ExtResource("8_nhgjk")]
+position = Vector2(770, 283)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1818089537]
+position = Vector2(576, 324)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="DeathFloor" to="." method="_on_death_floor_body_entered"]
+[connection signal="body_exited" from="DeathFloor" to="." method="_on_area_2d_body_exited"]
