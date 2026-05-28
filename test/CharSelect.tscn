@@ -28,6 +28,10 @@ Pointer = ExtResource("2_f6h8w")
 [node name="Node2D" parent="Cards" unique_id=1390754283 instance=ExtResource("3_iaagk")]
 position = Vector2(68, 80)
 
+[node name="Node2D2" parent="Cards" unique_id=1891321193 instance=ExtResource("3_iaagk")]
+position = Vector2(197, 80)
+charecter = 1
+
 [node name="Box" type="Node" parent="." unique_id=1362073470]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Box" unique_id=1596395996]
@@ -64,3 +68,5 @@ icon = ExtResource("4_tv3mf")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

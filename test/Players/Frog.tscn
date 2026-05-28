@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0d7poryl7yjl"]
 
-[ext_resource type="Script" uid="uid://b548j45gqn8ch" path="res://frog.gd" id="1_1iknd"]
+[ext_resource type="Script" uid="uid://b548j45gqn8ch" path="res://Players/frog.gd" id="1_1iknd"]
 [ext_resource type="SpriteFrames" uid="uid://ckew4kh580gmx" path="res://SourceFile.aseprite" id="1_i3uh0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1iknd"]

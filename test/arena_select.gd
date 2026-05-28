@@ -1,18 +1,10 @@
 extends Node2D
 
 
-@export_enum("FightGuy", "Frog") var charecter:int = 0
-@export var TEXT : String
-
-
-@onready var Sprite = $AnimatedSprite2D
-@onready var Text = $Label
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Sprite.frame = charecter
-	Text.text = TEXT
+	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

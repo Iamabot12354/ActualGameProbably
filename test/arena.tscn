@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkuvcbnm78q2f"]
 
-[ext_resource type="PackedScene" uid="uid://c0d7poryl7yjl" path="res://Frog.tscn" id="1_ubfh8"]
+[ext_resource type="PackedScene" uid="uid://c0d7poryl7yjl" path="res://Players/Frog.tscn" id="1_ubfh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_444vf"]
 size = Vector2(798, 117)

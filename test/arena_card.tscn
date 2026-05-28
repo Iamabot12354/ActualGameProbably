@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://chfoi0yo28kuv"]
+
+[ext_resource type="Script" uid="uid://qnn88k1kw6sr" path="res://arena_card.gd" id="1_p54c6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_cv65l"]
+
+[node name="ArenaCard" type="Node2D" unique_id=1150917715]
+script = ExtResource("1_p54c6")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="." unique_id=1970590176]
+self_modulate = Color(0.14, 0.14, 0.14, 1)
+position = Vector2(0, 15.999998)
+scale = Vector2(248, 232)
+mesh = SubResource("QuadMesh_cv65l")
+
+[node name="Label" type="Label" parent="." unique_id=779089820]
+offset_left = -118.0
+offset_top = 93.0
+offset_right = 117.0
+offset_bottom = 121.0
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=351655072]
+offset_left = -110.0
+offset_top = -88.0
+offset_right = 110.0
+offset_bottom = 81.0
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

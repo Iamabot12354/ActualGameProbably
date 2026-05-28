@@ -12,7 +12,7 @@ var current_health = 100
 var health_regen = 1
 var respawn_count = 0
 var action = "Idle"
-
+var control
 
 
 func _physics_process(delta: float) -> void:
@@ -47,14 +47,14 @@ func _physics_process(delta: float) -> void:
 		
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Space") and action != "Attack" and is_on_floor():
+	if Input.is_action_just_pressed("Space") and action != "Attack" and is_on_floor() and control == "Keyboard" or Input.is_action_just_pressed("Controller1Select") and action != "Attack" and is_on_floor() and control == "Controller1" or Input.is_action_just_pressed("Controller2Select") and action != "Attack" and is_on_floor() and control == "Controller2" or Input.is_action_just_pressed("Controller3Select") and action != "Attack" and is_on_floor() and control == "Controller3" or Input.is_action_just_pressed("Controller4Select") and action != "Attack" and is_on_floor() and control == "Controller4":
 		
 		action = "Hop"
 		
 		
 		$JumpTimer.start()
 		
-	if Input.is_action_just_released("Space"):
+	if Input.is_action_just_released("Space") and control == "Keyboard" or Input.is_action_just_released("Controller1Select") and control == "Controller1" or Input.is_action_just_released("Controller2Select") and control == "Controller2" or Input.is_action_just_released("Controller3Select") and control == "Controller3" or Input.is_action_just_released("Controller4Select") and control == "Controller4":
 		
 		var time = abs(($JumpTimer.time_left-2))
 		
@@ -76,7 +76,21 @@ func _physics_process(delta: float) -> void:
 		action = "Hop"
 	
 	
-	var direction := Input.get_axis("A", "D")
+	var direction
+	if control == "Keyboard":
+		direction = Input.get_axis("A", "D")
+	elif control == "Controller1":
+		direction = Input.get_axis("Controller1Left", "Controller1Right")
+	elif control == "Controller2":
+		direction = Input.get_axis("Controller2Left", "Controller2Right")
+	elif control == "Controller3":
+		direction = Input.get_axis("Controller3Left", "Controller3Right")
+	elif control == "Controller4":
+		direction = Input.get_axis("Controller4Left", "Controller4Right")
+	
+	
+	
+	
 	if direction:
 		velocity.x = direction * SPEED
 		if action != "Attack":
@@ -88,7 +102,7 @@ func _physics_process(delta: float) -> void:
 			
 			action = "Idle"
 		
-	if Input.is_action_just_pressed("RMB") :
+	if Input.is_action_just_pressed("RMB") and control == "Keyboard" or Input.is_action_just_pressed("Controller1Trigger") and control == "Controller1" or Input.is_action_just_pressed("Controller2Trigger") and control == "Controller2" or Input.is_action_just_pressed("Controller3Trigger") and control == "Controller3" or Input.is_action_just_pressed("Controller4Trigger") and control == "Controller4":
 		action = "Attack"
 		
 

@@ -1,3 +1,18 @@
 [gd_scene format=3 uid="uid://br5tlib11h4oy"]
 
+[ext_resource type="PackedScene" uid="uid://chfoi0yo28kuv" path="res://arena_card.tscn" id="1_47fsv"]
+[ext_resource type="Script" uid="uid://dt662hrbigae7" path="res://arena_select.gd" id="1_hun8n"]
+[ext_resource type="Texture2D" uid="uid://dceokepagiywd" path="res://Icy Tundra/Gemini_Generated_Image_gyfsxagyfsxagyfs.png" id="2_dhxft"]
+
 [node name="Node2D" type="Node2D" unique_id=768224648]
+script = ExtResource("1_hun8n")
+
+[node name="ArenaCard" parent="." unique_id=1150917715 instance=ExtResource("1_47fsv")]
+position = Vector2(186, 138)
+UserIMG = ExtResource("2_dhxft")
+Text = "TESTIMG"
+FOCUS = true
+Path = "res://Icy Tundra/Arena1.tscn"
+
+[node name="ArenaCard2" parent="." unique_id=1272247664 instance=ExtResource("1_47fsv")]
+position = Vector2(495, 142)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://buihbmf5o3qld" path="res://player_card.gd" id="1_5nuka"]
 [ext_resource type="Texture2D" uid="uid://dc0i5a0p2inrs" path="res://Assets/Player/Player Idle 48x48.png" id="1_hrq6h"]
+[ext_resource type="Texture2D" uid="uid://s570wl6fqvc7" path="res://SourceFile.png" id="3_sbfje"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hrq6h"]
 
@@ -10,81 +11,25 @@ size = Vector2(82, 112)
 
 [sub_resource type="BoxMesh" id="BoxMesh_sbfje"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xqn6c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nuka"]
 atlas = ExtResource("1_hrq6h")
 region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u5wfm"]
-atlas = ExtResource("1_hrq6h")
-region = Rect2(48, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbfje"]
+atlas = ExtResource("3_sbfje")
+region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_afr0m"]
-atlas = ExtResource("1_hrq6h")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_soj4l"]
-atlas = ExtResource("1_hrq6h")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tthx3"]
-atlas = ExtResource("1_hrq6h")
-region = Rect2(192, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ux22k"]
-atlas = ExtResource("1_hrq6h")
-region = Rect2(240, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3u8cx"]
-atlas = ExtResource("1_hrq6h")
-region = Rect2(288, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_62cld"]
-atlas = ExtResource("1_hrq6h")
-region = Rect2(336, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mvb5j"]
-atlas = ExtResource("1_hrq6h")
-region = Rect2(384, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x7dtx"]
-atlas = ExtResource("1_hrq6h")
-region = Rect2(432, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ragc7"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbfje"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xqn6c")
+"texture": SubResource("AtlasTexture_5nuka")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u5wfm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_afr0m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_soj4l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tthx3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ux22k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3u8cx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_62cld")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mvb5j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x7dtx")
+"texture": SubResource("AtlasTexture_sbfje")
 }],
 "loop": true,
-"name": &"default",
+"name": &"FightGuy",
 "speed": 5.0
 }]
 
@@ -105,12 +50,6 @@ self_modulate = Color(0.18, 0.18, 0.18, 1)
 scale = Vector2(84.00001, 114.00001)
 mesh = SubResource("BoxMesh_sbfje")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=797672175]
-texture_filter = 1
-position = Vector2(0, -8)
-scale = Vector2(2.2083335, 2.208333)
-sprite_frames = SubResource("SpriteFrames_ragc7")
-
 [node name="Label" type="Label" parent="." unique_id=281770725]
 offset_left = -41.0
 offset_top = 35.0
@@ -118,3 +57,10 @@ offset_right = 41.0
 offset_bottom = 58.0
 text = "TEST"
 horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=165825733]
+texture_filter = 1
+position = Vector2(0, -6.9999995)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_sbfje")
+animation = &"FightGuy"
