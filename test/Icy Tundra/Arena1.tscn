@@ -1,13 +1,19 @@
 [gd_scene format=3 uid="uid://c2h81ht3ieql7"]
 
-[ext_resource type="Script" uid="uid://dwwpxsosge4e1" path="res://ArenaScript.gd" id="1_vhi1u"]
+[ext_resource type="Script" uid="uid://dwwpxsosge4e1" path="res://Icy Tundra/ArenaScript.gd" id="1_vhi1u"]
+[ext_resource type="PackedScene" uid="uid://r1xyk2hpf2sf" path="res://Players/Player.tscn" id="2_db8a0"]
 [ext_resource type="Texture2D" uid="uid://cils0u2r1gbcs" path="res://Icy Tundra/Gemini_Generated_Image_fbc94afbc94afbc9.png" id="2_ney3g"]
 [ext_resource type="Texture2D" uid="uid://rspkyq7e4x4j" path="res://Icy Tundra/Image.png" id="2_vhi1u"]
 [ext_resource type="PackedScene" uid="uid://cyxmywc1uqlkn" path="res://Spawns/Player1Spawn.tscn" id="3_vhi1u"]
 [ext_resource type="PackedScene" uid="uid://d4jpnmn4tw6ln" path="res://Spawns/Player2Spawn.tscn" id="4_ney3g"]
-[ext_resource type="PackedScene" uid="uid://c0d7poryl7yjl" path="res://Frog.tscn" id="4_vhi1u"]
 [ext_resource type="PackedScene" uid="uid://duv2pikkb65nf" path="res://Spawns/Player3Spawn.tscn" id="5_em6nm"]
 [ext_resource type="PackedScene" uid="uid://bkcrm450mqvix" path="res://Spawns/Player4Spawn.tscn" id="6_wya7v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhi1u"]
+size = Vector2(1164, 657)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em6nm"]
+size = Vector2(1978, 1286.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ahp8"]
 size = Vector2(0.3231058, 0.06463069)
@@ -31,8 +37,15 @@ size = Vector2(111.5, 50.25)
 size = Vector2(493.75, 3)
 
 [node name="Node2D" type="Node2D" unique_id=2029660602]
-modulate = Color(7.70092e-07, 0.86829525, 0.5435388, 1)
 script = ExtResource("1_vhi1u")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1114037160]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=343848273]
+position = Vector2(572, 318.5)
+shape = SubResource("RectangleShape2D_vhi1u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=543313512]
 
 [node name="Image" type="Sprite2D" parent="." unique_id=154730081]
 position = Vector2(577, 290)
@@ -43,6 +56,33 @@ texture = ExtResource("2_vhi1u")
 position = Vector2(578, 498)
 scale = Vector2(0.71556115, 0.7155612)
 texture = ExtResource("2_ney3g")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"pending_changes": {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "",
+"source_uid": -1
+}
+}
+
+[node name="DeathFloor" type="Area2D" parent="." unique_id=684512777]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathFloor" unique_id=1633132890]
+position = Vector2(576, 1706.75)
+shape = SubResource("RectangleShape2D_em6nm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1646575472]
 
@@ -57,7 +97,6 @@ position = Vector2(0, -30)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=290521826]
 position = Vector2(590.875, 293)
 shape = SubResource("RectangleShape2D_4idoe")
-one_way_collision = true
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="." unique_id=742470741]
 position = Vector2(0, -30)
@@ -65,7 +104,6 @@ position = Vector2(0, -30)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D7" unique_id=1774913332]
 position = Vector2(971.9375, 295.96875)
 shape = SubResource("RectangleShape2D_ney3g")
-one_way_collision = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1631651611]
 position = Vector2(0, -30)
@@ -73,7 +111,6 @@ position = Vector2(0, -30)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1999673228]
 position = Vector2(207.25, 294)
 shape = SubResource("RectangleShape2D_k4xf6")
-one_way_collision = true
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=343605191]
 position = Vector2(0, -30)
@@ -99,6 +136,9 @@ position = Vector2(598.125, 168)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_1c4tb")
 one_way_collision = true
+
+[node name="CharacterBody2D" parent="." unique_id=1455943417 groups=["Player"] instance=ExtResource("2_db8a0")]
+position = Vector2(475, 391)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=310088420]
 
@@ -126,5 +166,10 @@ position = Vector2(273, 235)
 [node name="Player4Spawn2" parent="." unique_id=1485251628 instance=ExtResource("6_wya7v")]
 position = Vector2(702, 403)
 
-[node name="CharacterBody2D" parent="." unique_id=1182257484 instance=ExtResource("4_vhi1u")]
-position = Vector2(609, 426)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1818089537]
+position = Vector2(576, 324)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="DeathFloor" to="." method="_on_death_floor_body_entered"]
+[connection signal="body_exited" from="DeathFloor" to="." method="_on_area_2d_body_exited"]
