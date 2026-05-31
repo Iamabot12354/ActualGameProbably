@@ -485,8 +485,7 @@ texture_filter = 1
 position = Vector2(7, -3)
 scale = Vector2(2.3125, 2.3125)
 sprite_frames = SubResource("SpriteFrames_l6ohk")
-animation = &"damage"
-frame_progress = 0.51693696
+animation = &"knockback"
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
 "layer_section": false,
