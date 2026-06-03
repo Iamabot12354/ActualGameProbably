@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://du1hqsfnbd633"]
+
+[ext_resource type="Script" uid="uid://dnbtja5l42mk7" path="res://Ability/Char1/LaserBall/laser_ball.gd" id="1_6a66t"]
+[ext_resource type="Texture2D" uid="uid://cemtu78fxi4vc" path="res://Ability/Char1/LaserBall/laser-beam-pixel-art-11563037601qamote2gip-removebg-preview.png" id="2_2wn2t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fb0cr"]
+radius = 27.073973
+
+[node name="LaserBall" type="Node2D" unique_id=1768100297]
+script = ExtResource("1_6a66t")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=83622977]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1718926703]
+position = Vector2(28, 0)
+scale = Vector2(0.1417004, 0.1417004)
+texture = ExtResource("2_2wn2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1535068378]
+shape = SubResource("CircleShape2D_fb0cr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

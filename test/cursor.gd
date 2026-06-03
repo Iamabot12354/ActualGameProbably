@@ -3,7 +3,7 @@ extends CharacterBody2D
 var PlayerNum = null
 var control
 @export var Sense : int
-var colour
+var colour = Color(1.0, 0.0, 0.0, 1.0)
 var Selected = false
 var char = null
 var InArea = false

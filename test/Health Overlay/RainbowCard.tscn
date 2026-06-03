@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bq4qy1x5tpyyk"]
 
-[ext_resource type="Script" uid="uid://dy038x5m8awf2" path="res://Health Overlay/canvas_layer.gd" id="1_4x1jy"]
+[ext_resource type="Script" uid="uid://c0rpg3gcmg5lg" path="res://Health Overlay/rainbow_card.gd" id="1_j38xf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x1jy"]
 bg_color = Color(0.18717611, 0.18717617, 0.18717602, 1)
@@ -13,18 +13,22 @@ bg_color = Color(0.17283267, 0.17283267, 0.17283258, 1)
 corner_detail = 9
 shadow_size = 2
 
-[node name="RainbowMan" type="Node2D" unique_id=281492168]
+[node name="RainbowMan" type="Control" unique_id=1410826045]
+custom_minimum_size = Vector2(70, 96)
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_j38xf")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1489944206]
-script = ExtResource("1_4x1jy")
-
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=440347353]
+[node name="Panel" type="Panel" parent="." unique_id=440347353]
+layout_mode = 0
 offset_right = 70.0
 offset_bottom = 96.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4x1jy")
 
-[node name="health_bar" type="ProgressBar" parent="CanvasLayer" unique_id=1175521634]
+[node name="health_bar" type="ProgressBar" parent="." unique_id=1175521634]
 modulate = Color(0, 0.8040907, 0.8047688, 1)
+layout_mode = 0
 offset_left = 2.0
 offset_top = 70.0
 offset_right = 68.0

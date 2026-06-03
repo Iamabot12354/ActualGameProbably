@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c2h81ht3ieql7"]
 
 [ext_resource type="Script" uid="uid://dwwpxsosge4e1" path="res://Icy Tundra/ArenaScript.gd" id="1_vhi1u"]
-[ext_resource type="PackedScene" uid="uid://r1xyk2hpf2sf" path="res://Players/Player.tscn" id="2_db8a0"]
 [ext_resource type="Texture2D" uid="uid://cils0u2r1gbcs" path="res://Icy Tundra/Gemini_Generated_Image_fbc94afbc94afbc9.png" id="2_ney3g"]
 [ext_resource type="Texture2D" uid="uid://rspkyq7e4x4j" path="res://Icy Tundra/Image.png" id="2_vhi1u"]
 [ext_resource type="PackedScene" uid="uid://cyxmywc1uqlkn" path="res://Spawns/Player1Spawn.tscn" id="3_vhi1u"]
@@ -10,10 +9,19 @@
 [ext_resource type="PackedScene" uid="uid://bkcrm450mqvix" path="res://Spawns/Player4Spawn.tscn" id="6_wya7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhi1u"]
-size = Vector2(1164, 657)
+size = Vector2(1152, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db8a0"]
+size = Vector2(1464, 959)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wya7v"]
+size = Vector2(1961, 1325)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5picu"]
+size = Vector2(2718, 1868)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_em6nm"]
-size = Vector2(1978, 1286.5)
+size = Vector2(6513, 135.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ahp8"]
 size = Vector2(0.3231058, 0.06463069)
@@ -42,10 +50,34 @@ script = ExtResource("1_vhi1u")
 [node name="Area2D" type="Area2D" parent="." unique_id=1114037160]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=343848273]
-position = Vector2(572, 318.5)
+position = Vector2(576, 324)
 shape = SubResource("RectangleShape2D_vhi1u")
 
+[node name="SecondSTage" type="Area2D" parent="." unique_id=1633834254]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondSTage" unique_id=1306273632]
+position = Vector2(572, 318.5)
+shape = SubResource("RectangleShape2D_db8a0")
+
+[node name="ThirdStage" type="Area2D" parent="." unique_id=1250046206]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThirdStage" unique_id=1697290051]
+position = Vector2(577.5, 393.5)
+shape = SubResource("RectangleShape2D_wya7v")
+
+[node name="FourthStage" type="Area2D" parent="." unique_id=331352177]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FourthStage" unique_id=490561126]
+position = Vector2(591, 380)
+shape = SubResource("RectangleShape2D_5picu")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=543313512]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1582099719]
+layout_direction = 2
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 
 [node name="Image" type="Sprite2D" parent="." unique_id=154730081]
 position = Vector2(577, 290)
@@ -81,7 +113,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 [node name="DeathFloor" type="Area2D" parent="." unique_id=684512777]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathFloor" unique_id=1633132890]
-position = Vector2(576, 1706.75)
+position = Vector2(762, 1387)
 shape = SubResource("RectangleShape2D_em6nm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1646575472]
@@ -137,39 +169,25 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_1c4tb")
 one_way_collision = true
 
-[node name="CharacterBody2D" parent="." unique_id=1455943417 groups=["Player"] instance=ExtResource("2_db8a0")]
-position = Vector2(475, 391)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=310088420]
-
 [node name="Player1Spawn" parent="." unique_id=1044477353 instance=ExtResource("3_vhi1u")]
-position = Vector2(238, 450)
+position = Vector2(608, 375)
 
 [node name="Player2Spawn" parent="." unique_id=870532825 instance=ExtResource("4_ney3g")]
-position = Vector2(914, 450)
+position = Vector2(658, 376)
 
 [node name="Player3Spawn" parent="." unique_id=977434403 instance=ExtResource("5_em6nm")]
-position = Vector2(122, 250)
+position = Vector2(184, 205)
 
 [node name="Player4Spawn" parent="." unique_id=1436987136 instance=ExtResource("6_wya7v")]
-position = Vector2(1030, 250)
-
-[node name="Player1Spawn2" parent="." unique_id=1628165747 instance=ExtResource("3_vhi1u")]
-position = Vector2(406, 582)
-
-[node name="Player2Spawn2" parent="." unique_id=1270360961 instance=ExtResource("4_ney3g")]
-position = Vector2(576, 110)
-
-[node name="Player3Spawn2" parent="." unique_id=299314973 instance=ExtResource("5_em6nm")]
-position = Vector2(273, 235)
-
-[node name="Player4Spawn2" parent="." unique_id=1485251628 instance=ExtResource("6_wya7v")]
-position = Vector2(702, 403)
+position = Vector2(980, 194)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1818089537]
 position = Vector2(576, 324)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="SecondSTage" to="." method="_on_second_s_tage_body_exited"]
+[connection signal="body_exited" from="ThirdStage" to="." method="_on_third_stage_body_exited"]
+[connection signal="body_exited" from="FourthStage" to="." method="_on_fourth_stage_body_exited"]
 [connection signal="body_entered" from="DeathFloor" to="." method="_on_death_floor_body_entered"]
 [connection signal="body_exited" from="DeathFloor" to="." method="_on_area_2d_body_exited"]
