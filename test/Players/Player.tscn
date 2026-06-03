@@ -481,7 +481,7 @@ size = Vector2(4, 16.375)
 size = Vector2(37, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncu4g"]
-size = Vector2(60, 26)
+size = Vector2(90, 26)
 
 [sub_resource type="Animation" id="Animation_bwdm4"]
 length = 2.5333333

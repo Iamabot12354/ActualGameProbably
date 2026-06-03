@@ -13,7 +13,8 @@ var current_knock = 1
 var respawn_count = 0
 var anim_over = false
 var move_over = false
-var knock_bonus = 0
+var knock_bonus_x = 0
+var knock_bonus_y = 0
 var knock_back = 0
 
 const LASER_BALL_SCENE = preload("res://Ability/Char1/LaserBall/LaserBall.tscn")
@@ -141,13 +142,14 @@ func _on_punch_hit_area_entered(area: Area2D) -> void:
 			if knock_direction == 0: knock_direction = 1 
 			
 			knock_back = 300 * knock_direction
-			knock_bonus = 60 * (area.owner.current_knock/10) * knock_direction
+			knock_bonus_x = 60 * (area.owner.current_knock/10) * knock_direction
+			knock_bonus_y = 60 * (area.owner.current_knock/10) 
 			
 			print(knock_back)
 			print(area.owner.current_knock)
-			print(knock_bonus)
-			area.owner.velocity.x = knock_back + knock_bonus
-			area.owner.velocity.y = -600 * (0.01*knock_bonus)
+			print(knock_bonus_x)
+			area.owner.velocity.x = knock_back + knock_bonus_x
+			area.owner.velocity.y = -600 * (0.01*knock_bonus_y)
 			
 			await get_tree().create_timer(0.5).timeout
 			if area.owner.is_on_floor():
