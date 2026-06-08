@@ -601,6 +601,7 @@ pitch_scale = 2.26
 
 [node name="WhiteHoleIdle" type="AudioStreamPlayer" parent="." unique_id=2018522117]
 stream = ExtResource("10_5pxjh")
+volume_db = 4.952
 pitch_scale = 0.61
 
 [node name="Laser" type="AudioStreamPlayer" parent="." unique_id=1509996640]

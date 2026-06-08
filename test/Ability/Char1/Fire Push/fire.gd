@@ -31,13 +31,11 @@ func _on_area_2d_body_entered(area: Node2D) -> void:
 		area.velocity.x = knock_back + knock_bonus_x
 		area.velocity.y = -600 * (0.01*knock_bonus_y)
 		
-		await get_tree().create_timer(0.5).timeout
-		if area.is_on_floor():
-			area.velocity.x = 0
-			area.velocity.y = 0
 		await get_tree().create_timer(1).timeout
+		area.velocity.x = 0
+		area.velocity.y = 0
 		area.move_over = false
-			
+		
 	await get_tree().create_timer(1).timeout
 	
 	queue_free()

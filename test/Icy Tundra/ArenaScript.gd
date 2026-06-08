@@ -51,7 +51,7 @@ func _ready() -> void:
 		player_Instance.health_changed.connect(ui_ins.update_health_bar)
 		add_child(player_Instance)
 		$CanvasLayer/HBoxContainer.add_child(ui_ins)
-		player_Instance.health_changed.emit(player_Instance.current_knock, player_Instance.max_health)
+		player_Instance.health_changed.emit(player_Instance.current_knock, player_Instance.max_health, player_Instance.respawns)
 	
 
 
@@ -69,9 +69,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		Camera.zoom -= Vector2(0.2 ,0.2)
 		print("zoom1 out")
 
-#func _on_death_floor_body_entered(body: Node2D) -> void:
-	#
-	#body.queue_free()
+func _on_death_floor_body_entered(body: Node2D) -> void:
+	$DeathSound.play()
+	body.respawn()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	

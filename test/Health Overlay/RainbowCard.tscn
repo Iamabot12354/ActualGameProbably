@@ -36,3 +36,42 @@ offset_bottom = 94.0
 theme_override_fonts/font = SubResource("FontVariation_4x1jy")
 theme_override_styles/background = SubResource("StyleBoxFlat_iddkm")
 step = 1.0
+
+[node name="health_bar2" type="ProgressBar" parent="." unique_id=2123040107]
+modulate = Color(0, 0.8040907, 0.8047688, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 46.0
+offset_right = 22.0
+offset_bottom = 69.0
+theme_override_fonts/font = SubResource("FontVariation_4x1jy")
+theme_override_styles/background = SubResource("StyleBoxFlat_iddkm")
+max_value = 1.0
+step = 1.0
+show_percentage = false
+
+[node name="health_bar3" type="ProgressBar" parent="." unique_id=1438005356]
+modulate = Color(0, 0.8040907, 0.8047688, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 46.0
+offset_right = 45.0
+offset_bottom = 69.0
+theme_override_fonts/font = SubResource("FontVariation_4x1jy")
+theme_override_styles/background = SubResource("StyleBoxFlat_iddkm")
+max_value = 1.0
+step = 1.0
+show_percentage = false
+
+[node name="health_bar4" type="ProgressBar" parent="." unique_id=59211276]
+modulate = Color(0, 0.8040907, 0.8047688, 1)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 46.0
+offset_right = 68.0
+offset_bottom = 69.0
+theme_override_fonts/font = SubResource("FontVariation_4x1jy")
+theme_override_styles/background = SubResource("StyleBoxFlat_iddkm")
+max_value = 1.0
+step = 1.0
+show_percentage = false
