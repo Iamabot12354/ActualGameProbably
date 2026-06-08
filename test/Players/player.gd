@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 
 @onready var anim = $AnimatedSprite2D
+@onready var Punchbox = $PunchHit/PunchHit
+
 
 const SPEED = 600.0
 const JUMP_VELOCITY = -600.0
@@ -13,14 +15,21 @@ var current_knock = 1
 var respawn_count = 0
 var anim_over = false
 var move_over = false
+var blocking = false
+var bomb_count = 0
 var knock_bonus_x = 0
 var knock_bonus_y = 0
 var knock_back = 0
-
+var hole_pos
+var hole_placer = false
+var white_hole_count = 0
+#var knock_bonus = Vector2(60*current_knock/10,60*current_knock/10)
 const LASER_BALL_SCENE = preload("res://Ability/Char1/LaserBall/LaserBall.tscn")
+const WHITE_HOLE_SCENE = preload("res://Ability/Char1/WHitehole/whitehole.tscn")
+const BOMB_HOLE_SCENE = preload("res://Ability/Char1/Fire Push/Fire.tscn")
 
 signal health_changed(current_knock,max_health)
-
+signal play_requested(anim_name: String)
 
 func _ready() -> void:
 	if control == "Controller1":
@@ -47,9 +56,10 @@ func _physics_process(delta: float) -> void:
 		# If moving right, face right (flip_h is false)
 		if velocity.x > 0:
 			anim.flip_h = false
-		# If moving left, face left (flip_h is true)
+			Punchbox.position = Vector2(13,0)
 		elif velocity.x < 0:
 			anim.flip_h = true
+			Punchbox.position = Vector2(-43,0)
 		
 		if velocity.y < 0:
 			anim.play("jump")
@@ -71,13 +81,32 @@ func _physics_process(delta: float) -> void:
 		anim_over = true
 		anim.play("punch")
 		$PunchHit/PunchHit/AnimationPlayer.play("punch_hitbox")
+		$Punch.play()
 		
 		await anim.animation_finished
 		anim_over = false
 	
-	if Input.is_action_just_pressed("E") and not anim_over and control == "Keyboard" or Input.is_action_just_pressed("Square") and not anim_over and control == "Controller":
+	if Input.is_action_just_pressed("E") and not anim_over and control == "Keyboard" or Input.is_action_just_pressed("Square1") and not anim_over and control == "C1" or Input.is_action_just_pressed("Square2") and not anim_over and control == "C2" or Input.is_action_just_pressed("Square3") and not anim_over and control == "C3" or Input.is_action_just_pressed("Square4") and not anim_over and control == "C4":
 		shoot_laser()
+		
+	if Input.is_action_just_pressed("Q") and not anim_over and control == "Keyboard" or Input.is_action_just_pressed("Triangle1") and not anim_over and control == "C1" or Input.is_action_just_pressed("Triangle2") and not anim_over and control == "C2" or Input.is_action_just_pressed("Triangle3") and not anim_over and control == "C3" or Input.is_action_just_pressed("Triangle4") and not anim_over and control == "C4":
+		get_push_away_white_hole()
+		
+	if Input.is_action_just_pressed("R") and not anim_over and control == "Keyboard" or Input.is_action_just_pressed("Circle1") and not anim_over and control == "C1" or Input.is_action_just_pressed("Circle2") and not anim_over and control == "C2" or Input.is_action_just_pressed("Circle3") and not anim_over and control == "C3" or Input.is_action_just_pressed("Circle4") and not anim_over and control == "C4":
+		bomb_spawm()
+		
+	if Input.is_action_just_pressed("BlockK") and not anim_over and control == "Keyboard" or Input.is_action_just_pressed("Block1") and not anim_over and control == "C1" or Input.is_action_just_pressed("Block2") and not anim_over and control == "C2" or Input.is_action_just_pressed("Block3") and not anim_over and control == "C3" or Input.is_action_just_pressed("Block4") and not anim_over and control == "C4":
+		anim_over = true
+		blocking = true
+		anim.play("Block")
+		velocity.x = 0
+		
+		await get_tree().create_timer(2).timeout
+		
+		anim_over = false
+		blocking = false
 
+		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction
@@ -129,7 +158,7 @@ func death_animation():
 
 func _on_punch_hit_area_entered(area: Area2D) -> void:
 	
-	if area.name == "Hurtbox" and area.owner != self:
+	if area.name == "Hurtbox" and area.owner != self and blocking == false:
 		
 		if area.owner.has_method("knock_mult"):
 			area.owner.knock_mult(10)
@@ -144,6 +173,7 @@ func _on_punch_hit_area_entered(area: Area2D) -> void:
 			knock_back = 300 * knock_direction
 			knock_bonus_x = 60 * (area.owner.current_knock/10) * knock_direction
 			knock_bonus_y = 60 * (area.owner.current_knock/10) 
+
 			
 			print(knock_back)
 			print(area.owner.current_knock)
@@ -157,6 +187,7 @@ func _on_punch_hit_area_entered(area: Area2D) -> void:
 				area.owner.velocity.y = 0
 			await get_tree().create_timer(1).timeout
 			area.owner.move_over = false
+
 			
 func shoot_laser():
 	
@@ -177,3 +208,27 @@ func shoot_laser():
 	laser.multiplier = current_knock
 	
 	get_tree().current_scene.add_child(laser)
+
+func get_push_away_white_hole():
+	
+	var hole = WHITE_HOLE_SCENE.instantiate()
+	
+	hole.global_position = anim.global_position
+	
+	if white_hole_count < 1:
+		white_hole_count = 1
+		get_tree().current_scene.add_child(hole)
+
+func bomb_spawm():
+	
+	var bomb = BOMB_HOLE_SCENE.instantiate()
+
+	bomb.launcher = self
+	
+	bomb.global_position = global_position
+	
+	bomb.multiplier = current_knock
+	
+	if bomb_count < 1:
+		bomb_count = 1
+		get_tree().current_scene.add_child(bomb)

@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://du1hqsfnbd633"]
+[gd_scene format=3 uid="uid://bxhj3j0htpwel"]
 
-[ext_resource type="Script" uid="uid://dnbtja5l42mk7" path="res://Ability/Char1/LaserBall/laser_ball.gd" id="1_6a66t"]
-[ext_resource type="Texture2D" uid="uid://dd6x12ndh831" path="res://Ability/Char1/LaserBall/4fdcaf91e0b9e2a.png.webp" id="2_fb0cr"]
-[ext_resource type="AudioStream" uid="uid://d3w5ensnrw54n" path="res://Ability/Char1/LaserBall/dragon-studio-bang-487680.mp3" id="3_npp2k"]
-[ext_resource type="AudioStream" uid="uid://bapf1dye8nu7w" path="res://Ability/Char1/LaserBall/ahmed_abdulaal-laser-312360.mp3" id="4_yjwdg"]
+[ext_resource type="Script" uid="uid://dni3gixa7tv87" path="res://Ability/Char1/WHitehole/area_2d.gd" id="1_nxbxf"]
+[ext_resource type="Texture2D" uid="uid://cmt188k5ea81f" path="res://Ability/Char1/WHitehole/Gemini_Generated_Image_uau65yuau65yuau6-removebg-preview.png" id="2_nxbxf"]
+[ext_resource type="AudioStream" uid="uid://b0n2ydojwqtfo" path="res://Assets/ControllerIcons/submority-traimory-downer-charger-cinematic-trailer-sound-effects-161152.mp3" id="3_h8ppe"]
+[ext_resource type="AudioStream" uid="uid://byyplewu1fcek" path="res://Assets/ControllerIcons/liecio-cartoon-style-flying-saucer-sound-257591.mp3" id="4_g2juh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fb0cr"]
-radius = 27.073973
+radius = 200.24986
 
 [sub_resource type="Animation" id="Animation_iskgn"]
 resource_name = "GROWTH"
@@ -34,21 +34,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_xg5xo"]
-resource_name = "Laser"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../..:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.46666667, 0.53333336, 0.6, 0.6666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(0.2, 0.1), Vector2(0.3, 0.1), Vector2(0.4, 0.1), Vector2(0.5, 0.1), Vector2(0.6, 0.1), Vector2(0.7, 0.1), Vector2(1, 0.1)]
 }
 
 [sub_resource type="Animation" id="Animation_h8ppe"]
@@ -108,42 +93,47 @@ tracks/1/keys = {
 "values": [Color(1, 0.7411765, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0.7411765, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_o2mcd"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g2juh"]
 _data = {
 &"GROWTH": SubResource("Animation_iskgn"),
-&"Laser": SubResource("Animation_xg5xo"),
 &"RESET": SubResource("Animation_h8ppe"),
 &"pulse": SubResource("Animation_nxbxf")
 }
 
 [node name="LaserBall" type="Node2D" unique_id=1768100297]
 scale = Vector2(1.1, 1.1)
-script = ExtResource("1_6a66t")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=83622977]
+script = ExtResource("1_nxbxf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1718926703]
 modulate = Color(1, 0.7411765, 1, 1)
-scale = Vector2(0.1417004, 0.1417004)
-texture = ExtResource("2_fb0cr")
+texture_filter = 1
+position = Vector2(0, 5.9604645e-08)
+scale = Vector2(0.38211384, 0.38211384)
+texture = ExtResource("2_nxbxf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1535068378]
 shape = SubResource("CircleShape2D_fb0cr")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1374598073]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1012208129]
 root_node = NodePath("../Area2D/Sprite2D")
-libraries/ = SubResource("AnimationLibrary_o2mcd")
-autoplay = &"Laser"
+libraries/ = SubResource("AnimationLibrary_g2juh")
 speed_scale = 1.871
 
-[node name="AddWhiteHole" type="AudioStreamPlayer" parent="." unique_id=1967567380]
-stream = ExtResource("3_npp2k")
+[node name="AddWhiteHole" type="AudioStreamPlayer" parent="." unique_id=1616400839]
+stream = ExtResource("3_h8ppe")
 volume_db = -2.549
 pitch_scale = 2.26
 
-[node name="AddWhiteHole2" type="AudioStreamPlayer" parent="." unique_id=1402229887]
-stream = ExtResource("4_yjwdg")
+[node name="AddWhiteHole2" type="AudioStreamPlayer" parent="." unique_id=4280606]
+stream = ExtResource("3_h8ppe")
 volume_db = -2.549
 pitch_scale = 2.26
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="WhiteHoleIdle" type="AudioStreamPlayer" parent="." unique_id=1310230244]
+stream = ExtResource("4_g2juh")
+pitch_scale = 0.61
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

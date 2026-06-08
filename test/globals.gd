@@ -6,9 +6,6 @@ var PlayerList = []
 
 var PlayerChars = [null, null, null, null]
 
-
-
-
 var Scene
 
 var Ready = 0

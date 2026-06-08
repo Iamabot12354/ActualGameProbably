@@ -53,9 +53,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player") and Camera.zoom >= Vector2(0.8,0.8):
 		Camera.zoom -= Vector2(0.2 ,0.2)
 
-func _on_death_floor_body_entered(body: Node2D) -> void:
-	
-	body.queue_free()
+#func _on_death_floor_body_entered(body: Node2D) -> void:
+	#
+	##body.queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	
