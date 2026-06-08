@@ -28,4 +28,5 @@ func _physics_process(delta: float) -> void:
 			var direction = global_position.direction_to(body.global_position)
 
 			body.move_and_collide(direction * PUSH_SPEED * delta)
+			
 	

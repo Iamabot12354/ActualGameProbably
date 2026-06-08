@@ -10,6 +10,7 @@ const SPEED = 600.0
 const JUMP_VELOCITY = -600.0
 var jump_num = 0
 var control
+var PlayerNum
 var max_health = 100
 var current_knock = 1
 var respawn_count = 0
@@ -18,6 +19,7 @@ var move_over = false
 var blocking = false
 var bomb_count = 0
 var knock_bonus_x = 0
+var respawns = 3
 var knock_bonus_y = 0
 var knock_back = 0
 var hole_pos
@@ -28,7 +30,7 @@ const LASER_BALL_SCENE = preload("res://Ability/Char1/LaserBall/LaserBall.tscn")
 const WHITE_HOLE_SCENE = preload("res://Ability/Char1/WHitehole/whitehole.tscn")
 const BOMB_HOLE_SCENE = preload("res://Ability/Char1/Fire Push/Fire.tscn")
 
-signal health_changed(current_knock,max_health)
+signal health_changed(current_knock,max_health,respawns)
 signal play_requested(anim_name: String)
 
 func _ready() -> void:
@@ -136,19 +138,9 @@ func knock_mult(amount: int):
 	if current_knock > 100:
 		current_knock = 100
 		
-	health_changed.emit(current_knock,100)
+	health_changed.emit(current_knock,100,respawns)
 	
 	return (current_knock + amount)
-	
-func get_downed_animation():
-	
-	anim_over = true
-	anim.play("knockback")
-	
-	await anim.animation_finished
-	anim_over = false
-
-func death_animation():
 	
 	anim_over = true
 	anim.play("knockback")
@@ -231,3 +223,17 @@ func bomb_spawm():
 	if bomb_count < 1:
 		bomb_count = 1
 		get_tree().current_scene.add_child(bomb)
+
+func respawn():
+	
+	health_changed.emit(current_knock,100,(respawns-1))
+	
+	respawns -= 1
+	if respawns == 0:
+		Globals.respawn_list.append(PlayerNum)
+		queue_free()
+	else:
+		global_position = Vector2(600,400)
+		current_knock = 1
+		velocity.x = 0
+		velocity.y = 0

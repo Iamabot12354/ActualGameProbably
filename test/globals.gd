@@ -6,6 +6,8 @@ var PlayerList = []
 
 var PlayerChars = [null, null, null, null]
 
+var respawn_list = []
+
 var Scene
 
 var Ready = 0

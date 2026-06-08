@@ -51,4 +51,3 @@ func _on_area_2d_body_entered(area: Node2D) -> void:
 		area.move_over = false
 			
 	
-	#queue_free()
