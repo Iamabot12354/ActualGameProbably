@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c0d7poryl7yjl" path="res://Players/Frog.tscn" id="1_ubfh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_444vf"]
-size = Vector2(798, 117)
+size = Vector2(1844, 117)
 
 [node name="Node2D" type="Node2D" unique_id=183116326]
 

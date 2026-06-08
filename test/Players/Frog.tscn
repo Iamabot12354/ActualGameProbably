@@ -1,20 +1,24 @@
 [gd_scene format=3 uid="uid://c0d7poryl7yjl"]
 
 [ext_resource type="Script" uid="uid://b548j45gqn8ch" path="res://Players/frog.gd" id="1_1iknd"]
-[ext_resource type="SpriteFrames" uid="uid://ckew4kh580gmx" path="res://SourceFile.aseprite" id="1_i3uh0"]
+[ext_resource type="SpriteFrames" uid="uid://bfykietnv4c2e" path="res://SourceFile.aseprite" id="1_i3uh0"]
+[ext_resource type="AudioStream" uid="uid://chgxfo2hrnabq" path="res://freesound_community-teleport-14639.mp3" id="3_31rkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1iknd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13sa1"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1182257484]
 scale = Vector2(4, 4)
 script = ExtResource("1_1iknd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=98219152]
-position = Vector2(-2, -1.25)
+position = Vector2(0.75, -1.25)
 shape = SubResource("RectangleShape2D_1iknd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1881909771]
 texture_filter = 1
+position = Vector2(0.25, 0)
 sprite_frames = ExtResource("1_i3uh0")
 animation = &"Explosion"
 frame_progress = 0.21899417
@@ -22,3 +26,18 @@ frame_progress = 0.21899417
 [node name="JumpTimer" type="Timer" parent="." unique_id=2085363674]
 wait_time = 2.0
 one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1294264808]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=711683264]
+position = Vector2(0.75, -1.25)
+shape = SubResource("RectangleShape2D_13sa1")
+
+[node name="TeleCooldown" type="Timer" parent="." unique_id=477304242]
+wait_time = 4.0
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1844797653]
+stream = ExtResource("3_31rkp")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hurt_box_area_entered"]

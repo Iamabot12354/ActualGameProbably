@@ -27,10 +27,12 @@ Pointer = ExtResource("2_f6h8w")
 
 [node name="Node2D" parent="Cards" unique_id=1390754283 instance=ExtResource("3_iaagk")]
 position = Vector2(68, 80)
+TEXT = "FightGuy"
 
 [node name="Node2D2" parent="Cards" unique_id=1891321193 instance=ExtResource("3_iaagk")]
 position = Vector2(197, 80)
 charecter = 1
+TEXT = "Frog"
 
 [node name="Box" type="Node" parent="." unique_id=1362073470]
 
