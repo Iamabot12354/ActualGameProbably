@@ -6,24 +6,12 @@ var launcher = null
 var multiplier = 1
 
 func _ready() -> void:
-	
 
-	$AddWhiteHole.play()
-	$AddWhiteHole2.play()
-	
-
-	
-func _physics_process(delta: float) -> void:
-	position.x += direction * SPEED * delta
-	
-	if direction < 0:
-		$Area2D/Sprite2D.flip_h = false
-	elif direction > 0:
-		$Area2D/Sprite2D.flip_h = true
+	$AudioStreamPlayer.play()
 
 func _on_area_2d_body_entered(area: Node2D) -> void:
 	if area.has_method("knock_mult") and area != launcher and not area.blocking:
-		area.knock_mult(1)
+		area.knock_mult(20)
 		
 		
 		area.move_over = true
@@ -32,7 +20,7 @@ func _on_area_2d_body_entered(area: Node2D) -> void:
 
 		if knock_direction == 0: knock_direction = 1 
 		
-		var knock_back = 300 * knock_direction
+		var knock_back = 700 * knock_direction
 		var knock_bonus_x = 60 * (area.current_knock/10) * knock_direction
 		var knock_bonus_y = 60 * (area.current_knock/10) 
 
@@ -50,5 +38,6 @@ func _on_area_2d_body_entered(area: Node2D) -> void:
 		await get_tree().create_timer(1).timeout
 		area.move_over = false
 			
+	await get_tree().create_timer(1).timeout
 	
-	#queue_free()
+	queue_free()

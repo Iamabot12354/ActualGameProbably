@@ -1,6 +1,3 @@
-[gd_scene format=3 uid="uid://ckwjq5am1bjkh"]
-
-[ext_resource type="Script" uid="uid://b6kdmmi3vcu38" path="res://Ability/Char1/attack_module.gd" id="1_dge65"]
+[gd_scene format=3 uid="uid://dwp4csfl03gce"]
 
 [node name="Node" type="Node" unique_id=579683396]
-script = ExtResource("1_dge65")

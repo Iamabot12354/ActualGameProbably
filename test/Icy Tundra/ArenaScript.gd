@@ -69,30 +69,45 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	
-	print("zoom")
+	
 	if body.is_in_group("Player") and Camera.zoom >= Vector2(0.8,0.8):
 		Camera.zoom -= Vector2(0.2 ,0.2)
+		print("zoom1 out")
 
-func _on_death_floor_body_entered(body: Node2D) -> void:
-	
-	body.queue_free()
+#func _on_death_floor_body_entered(body: Node2D) -> void:
+	#
+	#body.queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 	if body.is_in_group("Player") and Camera.zoom < Vector2(1,1):
 		Camera.zoom += Vector2(0.2,0.2)
+		print("zoom1 in")
 
 func _on_second_s_tage_body_exited(body: Node2D) -> void:
 	
+	
 	if body.is_in_group("Player") and Camera.zoom >= Vector2(0.6,0.6):
 		Camera.zoom -= Vector2(0.2 ,0.2)
+		print("zoom2 out")
+		
+
+func _on_second_s_tage_body_entered(body: Node2D) -> void:
+		
+	if body.is_in_group("Player") and Camera.zoom < Vector2(0.8,0.8):
+		Camera.zoom += Vector2(0.2 ,0.2)
+		print("zoom2 in")
 
 func _on_third_stage_body_exited(body: Node2D) -> void:
 	
-	if body.is_in_group("Player") and Camera.zoom < Vector2(1,1):
-		Camera.zoom += Vector2(0.2,0.2)
-
-func _on_fourth_stage_body_exited(body: Node2D) -> void:
 	
 	if body.is_in_group("Player") and Camera.zoom < Vector2(1,1):
 		Camera.zoom += Vector2(0.2,0.2)
+		print("zoom3 in")
+
+func _on_fourth_stage_body_exited(body: Node2D) -> void:
+	
+	
+	if body.is_in_group("Player") and Camera.zoom < Vector2(1,1):
+		Camera.zoom += Vector2(0.2,0.2)
+		print("zoom4 in")
