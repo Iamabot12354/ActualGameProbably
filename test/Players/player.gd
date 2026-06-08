@@ -186,8 +186,7 @@ func _on_punch_hit_area_entered(area: Area2D) -> void:
 				area.owner.velocity.x = 0
 				area.owner.velocity.y = 0
 			await get_tree().create_timer(1).timeout
-			area.owner.move_over = false
-
+			#area.owner.move_over = false
 			
 func shoot_laser():
 	
