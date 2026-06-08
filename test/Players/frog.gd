@@ -13,10 +13,24 @@ var health_regen = 1
 var respawn_count = 0
 var action = "Idle"
 var control
+var knock_back
+var knock_bonus_x
+var knock_bonus_y
+var current_knock
+var teleLength = 150
+var teledir
+
+signal health_changed(current_knock,max_health)
+
+
+
+
 
 
 func _physics_process(delta: float) -> void:
+	Teleport()
 	Animate()
+	
 	if is_on_floor():
 		pass
 		# If we are standing still, play idle
@@ -93,12 +107,12 @@ func _physics_process(delta: float) -> void:
 	
 	if direction:
 		velocity.x = direction * SPEED
-		if action != "Attack":
+		if action != "Attack" and action != "Teleport":
 			action = "Hop"
 
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if action != "Attack":
+		if action != "Attack" and action != "Teleport":
 			
 			action = "Idle"
 		
@@ -130,18 +144,114 @@ func take_damage(amount: int):
 	Globals.health_changed.emit(current_health)
 	
 func Animate():
-	if abs(velocity.y) > 0 and action != "Attack":
+	
+	if abs(velocity.y) > 0 and action != "Attack" and action != "Teleport":
 		action = "Hop"
 		
-		
-	anim.play(action)
+	if action != "Teleport":
+		anim.play(action)
 	if velocity.y > 0:
 		anim.frame = 5
 		
 	elif velocity.y < 0:
 		anim.frame = 3
+		
+		
+	if action == "Teleport":
+		
+		if anim.animation != "Explosion":
+			anim.play("Explosion")
+			
+		
+		if anim.frame == 15 and anim.animation == "Teleport":
+			action = "Idle"
+		
+		
+			
+	
 	
 	if action == "Attack" and anim.frame == 5:
 		action = "Idle"
 
+		
+
+func knock_mult(amount: int):
+	current_knock += amount
+	
+	if current_knock > 100:
+		current_knock = 100
+		
+	health_changed.emit(current_knock,100)
+	
+	return (current_knock + amount)
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+		if area.name == "Hurtbox" and area.owner != self:
+		
+			if area.owner.has_method("knock_mult"):
+				area.owner.knock_mult(10)
+				
+				
+				area.owner.move_over = true
+				var knock_direction = sign(area.owner.global_position.x - global_position.x)
+				
+
+				if knock_direction == 0: knock_direction = 1 
+				
+				knock_back = 300 * knock_direction
+				knock_bonus_x = 60 * (area.owner.current_knock/10) * knock_direction
+				knock_bonus_y = 60 * (area.owner.current_knock/10) 
+				
+				print(knock_back)
+				print(area.owner.current_knock)
+				print(knock_bonus_x)
+				area.owner.velocity.x = knock_back + knock_bonus_x
+				area.owner.velocity.y = -600 * (0.01*knock_bonus_y)
+				
+				await get_tree().create_timer(0.5).timeout
+				if area.owner.is_on_floor():
+					area.owner.velocity.x = 0
+					area.owner.velocity.y = 0
+				await get_tree().create_timer(1).timeout
+				area.owner.move_over = false
+
+func Teleport():
+	if action == "Teleport":
+		if anim.frame == 8:
+			$AudioStreamPlayer.play()
+			$TeleCooldown.start()
+			var leftright
+			if control == "Keyboard":
+				leftright = Input.get_axis("A", "D")
+			elif control == "Controller1":
+				leftright = Input.get_axis("Controller1Left", "Controller1Right")
+			elif control == "Controller2":
+				leftright = Input.get_axis("Controller2Left", "Controller2Right")
+			elif control == "Controller3":
+				leftright = Input.get_axis("Controller3Left", "Controller3Right")
+			elif control == "Controller4":
+				leftright = Input.get_axis("Controller4Left", "Controller4Right")
+			var updown
+			if control == "Keyboard":
+				updown = Input.get_axis("W", "S")
+			elif control == "Controller1":
+				updown = Input.get_axis("Controller1Up", "Controller1Down")
+			elif control == "Controller2":
+				updown = Input.get_axis("Controller2Up", "Controller2Down")
+			elif control == "Controller3":
+				updown = Input.get_axis("Controller3Up", "Controller3Down")
+			elif control == "Controller4":
+				updown = Input.get_axis("Controller4Up", "Controller4Down")
+			teledir = Vector2(leftright*teleLength,updown*teleLength)
+			
+			velocity = Vector2(0, 0)
+			
+			position += teledir
+	
+	
+	
+	if $TeleCooldown.time_left == 0 and control == "Controller1" and Input.is_action_just_released("Square1") or control == "Controller2" and Input.is_action_just_released("Square2") or control == "Controller3" and Input.is_action_just_released("Square3") or control == "Controller4" and Input.is_action_just_released("Square4"):
+		action = "Teleport"
+		
 		
