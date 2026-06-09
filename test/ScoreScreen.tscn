@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cavhumk0r75j1"]
+[gd_scene format=3 uid="uid://25qqolio13lf"]
 
 [ext_resource type="Script" uid="uid://dnb7slnjpoaas" path="res://score_screen.gd" id="1_75fpi"]
 
@@ -92,6 +92,8 @@ shape = SubResource("RectangleShape2D_75fpi")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1835807064]
 position = Vector2(973, 606)
 shape = SubResource("RectangleShape2D_75fpi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1662083176]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

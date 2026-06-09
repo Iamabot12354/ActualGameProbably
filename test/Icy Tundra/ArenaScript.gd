@@ -64,7 +64,8 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if len(Globals.respawn_list) == len(Globals.PlayerList):
+		get_tree().change_scene_to_file("res://ScoreScreen.tscn")
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
