@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dq4cuuljp3q2o"]
+
+[ext_resource type="AudioStream" uid="uid://cclcjsuhw2g8a" path="res://Start/02 - Water Park.mp3" id="1_a6gjb"]
+[ext_resource type="Script" uid="uid://cqugve2yqadml" path="res://Start/music_player.gd" id="1_vg82y"]
+
+[node name="MusicPlayer" type="Node2D" unique_id=1762794505]
+script = ExtResource("1_vg82y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2073508441]
+stream = ExtResource("1_a6gjb")
+volume_db = -13.669
+autoplay = true

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bpjn5lv0wx2h1" path="res://Start/StartScene.gd" id="1_fn0mp"]
 [ext_resource type="Script" uid="uid://djo36o5y4iw4l" path="res://Start/Start.gd" id="2_5j6ip"]
+[ext_resource type="Texture2D" uid="uid://brd0qwxd27f18" path="res://Start/Gemini_Generated_Image_3hv0683hv0683hv0.png" id="2_b741a"]
 [ext_resource type="Texture2D" uid="uid://bpyks6ok6iyq5" path="res://Assets/ControllerIcons/gamepad1.png" id="3_b741a"]
 [ext_resource type="Texture2D" uid="uid://31d713oun33" path="res://Assets/ControllerIcons/gamepad2.png" id="4_mo5be"]
 [ext_resource type="Texture2D" uid="uid://c5qw83chymu36" path="res://Assets/ControllerIcons/gamepad3.png" id="5_qucvg"]
@@ -19,18 +20,32 @@ grow_vertical = 2
 script = ExtResource("1_fn0mp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=619805453]
-layout_mode = 0
-offset_right = 100.0
-offset_bottom = 100.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 244.0
+offset_right = 74.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1803632736]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 40
-text = "Start"
+text = "START"
+flat = true
 script = ExtResource("2_5j6ip")
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=2006172903]
-layout_mode = 2
+[node name="GeminiGeneratedImage3Hv0683Hv0683Hv0" type="Sprite2D" parent="." unique_id=231564468]
+position = Vector2(575.00006, 324.00003)
+scale = Vector2(0.41982505, 0.41326532)
+texture = ExtResource("2_b741a")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=924146619]
 layout_mode = 0

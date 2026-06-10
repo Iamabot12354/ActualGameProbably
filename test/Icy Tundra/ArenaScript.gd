@@ -78,6 +78,18 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_death_floor_body_entered(body: Node2D) -> void:
 	$DeathSound.play()
 	body.respawn()
+	
+	var total_players_in_match = len(Globals.PlayerList)
+
+	if Globals.respawn_list.size() == total_players_in_match - 1:
+
+		var all_possible_ids = [0, 1, 2, 3]
+		for id in all_possible_ids:
+			if not Globals.respawn_list.has(id):
+				Globals.respawn_list.append(id)
+				break
+
+		get_tree().change_scene_to_file("res://ScoreScreen.tscn")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	

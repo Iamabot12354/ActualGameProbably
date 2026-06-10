@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://c14c3c4x8ttxj"]
+[gd_scene format=3 uid="uid://b67tuvyifl8ta"]
 
-[ext_resource type="Script" uid="uid://bad2m30blqdv" path="res://Humid Night/ArenaScript.gd" id="1_c42xw"]
-[ext_resource type="Texture2D" uid="uid://1qyt00dteodm" path="res://CandyLava/Gemini_Generated_Image_ta1lfuta1lfuta1l.png" id="2_yt4r0"]
-[ext_resource type="PackedScene" uid="uid://cyxmywc1uqlkn" path="res://Spawns/Player1Spawn.tscn" id="5_8w5c3"]
-[ext_resource type="PackedScene" uid="uid://d4jpnmn4tw6ln" path="res://Spawns/Player2Spawn.tscn" id="6_b264y"]
-[ext_resource type="PackedScene" uid="uid://duv2pikkb65nf" path="res://Spawns/Player3Spawn.tscn" id="7_i3vbb"]
-[ext_resource type="AudioStream" uid="uid://rjynkofbkwrp" path="res://Humid Night/16 - Bowser's Castle.mp3" id="7_yt4r0"]
-[ext_resource type="AudioStream" uid="uid://cj74u28smc6iw" path="res://tromosm-beated-by-a-computer-by-tromosm-281034.mp3" id="8_n38h7"]
-[ext_resource type="PackedScene" uid="uid://bkcrm450mqvix" path="res://Spawns/Player4Spawn.tscn" id="8_nhgjk"]
+[ext_resource type="Script" uid="uid://bad2m30blqdv" path="res://Humid Night/ArenaScript.gd" id="1_s34d7"]
+[ext_resource type="Texture2D" uid="uid://w1vkyuqmdqt7" path="res://Humid Night/Gemini_Generated_Image_pl0s7npl0s7npl0s.png" id="2_xj5f7"]
+[ext_resource type="PackedScene" uid="uid://cyxmywc1uqlkn" path="res://Spawns/Player1Spawn.tscn" id="3_v08lr"]
+[ext_resource type="PackedScene" uid="uid://d4jpnmn4tw6ln" path="res://Spawns/Player2Spawn.tscn" id="4_mxre0"]
+[ext_resource type="PackedScene" uid="uid://duv2pikkb65nf" path="res://Spawns/Player3Spawn.tscn" id="5_w1sfi"]
+[ext_resource type="PackedScene" uid="uid://bkcrm450mqvix" path="res://Spawns/Player4Spawn.tscn" id="6_34jjp"]
+[ext_resource type="AudioStream" uid="uid://dm5npcekfn7d7" path="res://Humid Night/18 - Wii Moo Moo Meadows.mp3" id="8_6vme2"]
+[ext_resource type="AudioStream" uid="uid://cj74u28smc6iw" path="res://tromosm-beated-by-a-computer-by-tromosm-281034.mp3" id="8_i53h0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjt8g"]
 size = Vector2(1152, 648)
@@ -46,7 +46,7 @@ size = Vector2(162.75, 7.125)
 size = Vector2(224.875, 3)
 
 [node name="Node2D" type="Node2D" unique_id=2029660602]
-script = ExtResource("1_c42xw")
+script = ExtResource("1_s34d7")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=677363171]
 
@@ -72,10 +72,10 @@ shape = SubResource("RectangleShape2D_8ivjf")
 position = Vector2(591, 380)
 shape = SubResource("RectangleShape2D_tp8bi")
 
-[node name="GeminiGeneratedImageTa1Lfuta1Lfuta1l" type="Sprite2D" parent="." unique_id=445226519]
-position = Vector2(577.49994, 393.49997)
-scale = Vector2(0.71465015, 0.8450255)
-texture = ExtResource("2_yt4r0")
+[node name="GeminiGeneratedImagePl0s7Npl0s7Npl0s" type="Sprite2D" parent="." unique_id=1300565733]
+position = Vector2(577.5, 393.5)
+scale = Vector2(0.71465015, 0.84502554)
+texture = ExtResource("2_xj5f7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=896735313]
 
@@ -95,7 +95,7 @@ shape = SubResource("RectangleShape2D_hxu38")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1194346668]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=728985099]
-position = Vector2(565, 629)
+position = Vector2(591, 786)
 scale = Vector2(963.5, 88)
 shape = SubResource("RectangleShape2D_6s4ep")
 
@@ -148,28 +148,28 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_5mayn")
 one_way_collision = true
 
-[node name="Player1Spawn" parent="." unique_id=1044477353 instance=ExtResource("5_8w5c3")]
+[node name="Player1Spawn" parent="." unique_id=1044477353 instance=ExtResource("3_v08lr")]
 position = Vector2(608, 375)
 
-[node name="Player2Spawn" parent="." unique_id=870532825 instance=ExtResource("6_b264y")]
+[node name="Player2Spawn" parent="." unique_id=870532825 instance=ExtResource("4_mxre0")]
 position = Vector2(658, 376)
 
-[node name="Player3Spawn" parent="." unique_id=977434403 instance=ExtResource("7_i3vbb")]
+[node name="Player3Spawn" parent="." unique_id=977434403 instance=ExtResource("5_w1sfi")]
 position = Vector2(184, 205)
 
-[node name="Player4Spawn" parent="." unique_id=1436987136 instance=ExtResource("8_nhgjk")]
+[node name="Player4Spawn" parent="." unique_id=1436987136 instance=ExtResource("6_34jjp")]
 position = Vector2(980, 194)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=583820530]
 position = Vector2(576, 324)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1374123583]
-stream = ExtResource("7_yt4r0")
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=140434624]
+stream = ExtResource("8_i53h0")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1922840156]
+stream = ExtResource("8_6vme2")
 volume_db = -22.905
 autoplay = true
-
-[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=140434624]
-stream = ExtResource("8_n38h7")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

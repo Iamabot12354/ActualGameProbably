@@ -1,18 +1,36 @@
 [gd_scene format=3 uid="uid://br5tlib11h4oy"]
 
-[ext_resource type="PackedScene" uid="uid://chfoi0yo28kuv" path="res://arena_card.tscn" id="1_47fsv"]
 [ext_resource type="Script" uid="uid://dt662hrbigae7" path="res://arena_select.gd" id="1_hun8n"]
-[ext_resource type="Texture2D" uid="uid://dceokepagiywd" path="res://Icy Tundra/Gemini_Generated_Image_gyfsxagyfsxagyfs.png" id="2_dhxft"]
+[ext_resource type="Texture2D" uid="uid://b25aywppdrym4" path="res://Gemini_Generated_Image_6bjf4o6bjf4o6bjf.png" id="2_o23pw"]
+[ext_resource type="Texture2D" uid="uid://dxto8s0gqhp3i" path="res://Gemini_Generated_Image_mp6irvmp6irvmp6i.png" id="3_ljk0i"]
+[ext_resource type="Texture2D" uid="uid://cnmbtg86l15b0" path="res://Gemini_Generated_Image_p2r1enp2r1enp2r1.png" id="4_m16ra"]
+[ext_resource type="AudioStream" uid="uid://di64jiuuxugy" path="res://Humid Night/u_uev3l0tolc-buttonon-521345.mp3" id="5_m16ra"]
+[ext_resource type="AudioStream" uid="uid://crohjn845i84b" path="res://Humid Night/freesound_community-ui_correct_button2-103167.mp3" id="6_x6ve1"]
 
 [node name="Node2D" type="Node2D" unique_id=768224648]
 script = ExtResource("1_hun8n")
 
-[node name="ArenaCard" parent="." unique_id=1150917715 instance=ExtResource("1_47fsv")]
-position = Vector2(186, 138)
-UserIMG = ExtResource("2_dhxft")
-Text = "TESTIMG"
-FOCUS = true
-Path = "res://Icy Tundra/Arena1.tscn"
+[node name="Sweet Lava Tropics" type="Sprite2D" parent="." unique_id=1781262163]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(0.41982505, 0.41326532)
+texture = ExtResource("2_o23pw")
 
-[node name="ArenaCard2" parent="." unique_id=1272247664 instance=ExtResource("1_47fsv")]
-position = Vector2(495, 142)
+[node name="TropicalFruitIsland" type="Sprite2D" parent="." unique_id=102775249]
+position = Vector2(576, 324)
+scale = Vector2(0.41982502, 0.4132653)
+texture = ExtResource("3_ljk0i")
+
+[node name="MythicWinterTundra" type="Sprite2D" parent="." unique_id=213339853]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(0.4198251, 0.41326532)
+texture = ExtResource("4_m16ra")
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=371598754]
+stream = ExtResource("5_m16ra")
+
+[node name="Select" type="AudioStreamPlayer" parent="." unique_id=1514302250]
+stream = ExtResource("6_x6ve1")
+
+[node name="Lobby" type="AudioStreamPlayer" parent="." unique_id=425070118]
