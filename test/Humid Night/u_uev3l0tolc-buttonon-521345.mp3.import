@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://di64jiuuxugy"
+path="res://.godot/imported/u_uev3l0tolc-buttonon-521345.mp3-846f119a5d5e7e5b5b8ae1b995e7742c.mp3str"
+
+[deps]
+
+source_file="res://Humid Night/u_uev3l0tolc-buttonon-521345.mp3"
+dest_files=["res://.godot/imported/u_uev3l0tolc-buttonon-521345.mp3-846f119a5d5e7e5b5b8ae1b995e7742c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

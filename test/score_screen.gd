@@ -1,36 +1,41 @@
 extends Node2D
 
-var Colours = [Color(1.0, 0.0, 0.0, 1.0),Color(1.0, 1.0, 0.0, 1.0),Color(0.0, 0.0, 1.0, 1.0),Color(0.0, 1.0, 0.0, 1.0)]
-var Points = [$"1st Spawn", $"2nd Spawn", $"3rd Spawn"]
+var Colours = [Color(1.0, 0.0, 0.0, 1.0), Color(1.0, 1.0, 0.0, 1.0), Color(0.0, 0.0, 1.0, 1.0), Color(0.0, 1.0, 0.0, 1.0)]
 
+@onready var Points = [$"1st Spawn", $"2nd Spawn", $"3rd Spawn"]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	if len(Globals.respawn_list) < 3:
-		for i in range(len(Globals.respawn_list)):
-			var scene = preload("res://Players//Player.tscn")
-			scene.set("modulate", Colours[Globals.respawn_list[-i]])
-			scene.set("position.x", Points[i].position.x)
-			scene.set("position.y", Points[i].position.y)
-			scene.set("anim", "defult")
-			scene.instantiate()
-	else:
-		for i in range(3):
-			var scene = preload("res://Players//Player.tscn")
-			scene.set("modulate", Colours[Globals.respawn_list[-i]])
-			scene.set("position", Points[i].position)
-			scene.set("anim", "defult")
-			scene.instantiate()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	var podium_count = min(Globals.respawn_list.size(), 3)
+		
+	var player_scene = preload("res://Players/Player.tscn")
 
+	$Firework1.play("default")
+	await get_tree().create_timer(0.2).timeout
+	$Firework2.play("default")
+	await get_tree().create_timer(0.2).timeout
+	$Firework3.play("default")
+	await get_tree().create_timer(0.2).timeout
+	$Firework4.play("default")
+	await get_tree().create_timer(0.2).timeout
+	
+	MusicPlayer2.play()
+	for i in range(podium_count):
+		var instance = player_scene.instantiate()
 
-func _on_button_pressed() -> void:
-	get_tree().quit()
+		# PROPERLY read the list backwards
+		# The last person added to the list is 1st place, second-to-last is 2nd place, etc.
+		var list_index = Globals.respawn_list.size() - 1 - i
+		var player_id = Globals.respawn_list[list_index]
 
+		instance.modulate = Colours[player_id]
+		instance.position = Points[i].position
+		instance.set("anim", "default")
+		Globals.respawn_list = []
+
+		add_child(instance)
+		
 
 func _on_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://ArenaSelect.tscn")

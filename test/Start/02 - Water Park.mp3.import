@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cclcjsuhw2g8a"
+path="res://.godot/imported/02 - Water Park.mp3-5baa47e606ea1183ffc7eff9f084ba6e.mp3str"
+
+[deps]
+
+source_file="res://Start/02 - Water Park.mp3"
+dest_files=["res://.godot/imported/02 - Water Park.mp3-5baa47e606ea1183ffc7eff9f084ba6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
