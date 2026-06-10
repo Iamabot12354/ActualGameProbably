@@ -64,7 +64,7 @@ func _on_pressed() -> void:
 		
 	
 	#if len(Globals.PlayerList) >= 2:
-	get_tree().change_scene_to_file("res://CharSelect.tscn")
+	get_tree().change_scene_to_file("res://ArenaSelect.tscn")
 	#else:
 		#$"../../Label".show()
 		#$"../../Timer".start()

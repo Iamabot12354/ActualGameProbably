@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bf7lmnya7rkgv" path="res://char_select.gd" id="1_mikjp"]
 [ext_resource type="PackedScene" uid="uid://bsm217pqq0vlp" path="res://Cursor.tscn" id="2_f6h8w"]
 [ext_resource type="PackedScene" uid="uid://dj7fvj5btqkm3" path="res://PlayerCard.tscn" id="3_iaagk"]
-[ext_resource type="Texture2D" uid="uid://d3okc7l5ns3qb" path="res://Ready.aseprite" id="4_tv3mf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6h8w"]
 size = Vector2(2353, 104)
@@ -66,7 +65,6 @@ offset_left = -21.0
 offset_top = 510.0
 offset_right = 182.0
 offset_bottom = 689.0
-icon = ExtResource("4_tv3mf")
 flat = true
 icon_alignment = 1
 expand_icon = true

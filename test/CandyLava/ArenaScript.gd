@@ -30,11 +30,9 @@ func _ready() -> void:
 	
 	for i in range(len(Globals.PlayerList)):
 		var player_Instance
-		if Globals.PlayerChars[i] == 0:
-			player_Instance = Player.instantiate()
-		elif Globals.PlayerChars[i] == 1:
-			player_Instance = frog.instantiate()
-		
+
+		player_Instance = Player.instantiate()
+
 		player_Instance.set("PlayerNum", i)
 		player_Instance.set("control", Globals.PlayerList[i])
 		player_Instance.set("position", spawns[i].position)

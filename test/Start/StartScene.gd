@@ -12,11 +12,13 @@ func _ready() -> void:
 	
 	Imgs = [Img1, Img2, Img3, Img4]
 
-	MusicPlayer2.stop()
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
+	MusicPlayer2.stop()
+	
 	for i in range(len(Globals.PlayerList)):
 		Imgs[i].show()
 	
