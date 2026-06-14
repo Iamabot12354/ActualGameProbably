@@ -76,9 +76,9 @@ func Select_deselect(Area : Area2D) -> void:
 		if Selected == false:
 			Selected = true
 			Globals.Ready += 1
-			var parent = Area.get_parent()
-			Globals.PlayerChars[PlayerNum] = parent.charecter
-			print(Globals.PlayerChars)
+			
+			Globals.PlayerChars[PlayerNum] = 0
+			
 			
 			
 		else:
@@ -90,6 +90,7 @@ func Select_deselect(Area : Area2D) -> void:
 
 func _process(delta: float) -> void:
 	if InArea:
+		
 		Select_deselect(newArea)
 		
 	Move(delta)

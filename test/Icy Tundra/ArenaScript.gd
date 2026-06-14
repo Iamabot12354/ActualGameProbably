@@ -34,6 +34,7 @@ func _ready() -> void:
 
 		player_Instance.set("PlayerNum", i)
 		player_Instance.set("control", Globals.PlayerList[i])
+		print(Globals.PlayerList)
 		player_Instance.set("position", spawns[i].position)
 		player_Instance.set("Class", Globals.PlayerChars[i])
 		

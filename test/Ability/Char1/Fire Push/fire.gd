@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(area: Node2D) -> void:
 	if area.has_method("knock_mult") and area != launcher and not area.blocking:
-		area.knock_mult(20)
+		area.knock_mult(10)
 		
 		
 		area.move_over = true

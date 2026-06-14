@@ -28,22 +28,22 @@ size = Vector2(6513, 135.5)
 size = Vector2(0.3231058, 0.06463069)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whec3"]
-size = Vector2(195.125, 23.0625)
+size = Vector2(237.5625, 8.53125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cafyi"]
-size = Vector2(124.0625, 8.03125)
+size = Vector2(169.03125, 7.015625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66ysd"]
-size = Vector2(135.75, 20.625)
+size = Vector2(163.875, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0re18"]
-size = Vector2(363.75, 7.875)
+size = Vector2(92.875, 4.9375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcfmj"]
-size = Vector2(162.75, 7.125)
+size = Vector2(29.375, 4.5625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mayn"]
-size = Vector2(224.875, 3)
+size = Vector2(88.4375, 2.5)
 
 [node name="Node2D" type="Node2D" unique_id=2029660602]
 script = ExtResource("1_s34d7")
@@ -73,8 +73,8 @@ position = Vector2(591, 380)
 shape = SubResource("RectangleShape2D_tp8bi")
 
 [node name="GeminiGeneratedImagePl0s7Npl0s7Npl0s" type="Sprite2D" parent="." unique_id=1300565733]
-position = Vector2(577.5, 393.5)
-scale = Vector2(0.71465015, 0.84502554)
+position = Vector2(585.00006, 394)
+scale = Vector2(0.84630084, 0.846301)
 texture = ExtResource("2_xj5f7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=896735313]
@@ -103,7 +103,7 @@ shape = SubResource("RectangleShape2D_6s4ep")
 position = Vector2(0, -30)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=775984292]
-position = Vector2(586.4375, 380.46875)
+position = Vector2(596, 382)
 shape = SubResource("RectangleShape2D_whec3")
 one_way_collision = true
 
@@ -111,7 +111,7 @@ one_way_collision = true
 position = Vector2(0, -30)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D7" unique_id=323534968]
-position = Vector2(804.96875, 463.98438)
+position = Vector2(861.4844, 469.4922)
 shape = SubResource("RectangleShape2D_cafyi")
 one_way_collision = true
 
@@ -119,7 +119,7 @@ one_way_collision = true
 position = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=263482317]
-position = Vector2(401.125, 445.6875)
+position = Vector2(381.0625, 446.5)
 shape = SubResource("RectangleShape2D_66ysd")
 one_way_collision = true
 
@@ -127,7 +127,7 @@ one_way_collision = true
 position = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=41462270]
-position = Vector2(774.125, 179.9375)
+position = Vector2(383.5625, 629.53125)
 shape = SubResource("RectangleShape2D_0re18")
 one_way_collision = true
 
@@ -135,7 +135,7 @@ one_way_collision = true
 position = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=1213632540]
-position = Vector2(302.625, 265.4375)
+position = Vector2(541.3125, 600.71875)
 shape = SubResource("RectangleShape2D_pcfmj")
 one_way_collision = true
 
@@ -143,7 +143,7 @@ one_way_collision = true
 position = Vector2(0, -30)
 
 [node name="Collision 1" type="CollisionShape2D" parent="StaticBody2D4" unique_id=2062337140]
-position = Vector2(431.5625, 172)
+position = Vector2(785, 683)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_5mayn")
 one_way_collision = true

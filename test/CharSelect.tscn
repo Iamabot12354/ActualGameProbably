@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bf7lmnya7rkgv" path="res://char_select.gd" id="1_mikjp"]
 [ext_resource type="PackedScene" uid="uid://bsm217pqq0vlp" path="res://Cursor.tscn" id="2_f6h8w"]
 [ext_resource type="PackedScene" uid="uid://dj7fvj5btqkm3" path="res://PlayerCard.tscn" id="3_iaagk"]
+[ext_resource type="Texture2D" uid="uid://pjkejypge3g3" path="res://Gemini_Generated_Image_6jb55v6jb55v6jb5.png" id="4_tv3mf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6h8w"]
 size = Vector2(2353, 104)
@@ -21,17 +22,6 @@ script = ExtResource("1_mikjp")
 Pointer = ExtResource("2_f6h8w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1403867548]
-
-[node name="Cards" type="Node" parent="." unique_id=1264634451]
-
-[node name="Node2D" parent="Cards" unique_id=1390754283 instance=ExtResource("3_iaagk")]
-position = Vector2(68, 80)
-TEXT = "FightGuy"
-
-[node name="Node2D2" parent="Cards" unique_id=1891321193 instance=ExtResource("3_iaagk")]
-position = Vector2(197, 80)
-charecter = 1
-TEXT = "Frog"
 
 [node name="Box" type="Node" parent="." unique_id=1362073470]
 
@@ -61,12 +51,46 @@ shape = SubResource("RectangleShape2D_jlqq6")
 
 [node name="Button" type="Button" parent="." unique_id=865500185]
 texture_filter = 1
-offset_left = -21.0
-offset_top = 510.0
-offset_right = 182.0
-offset_bottom = 689.0
+offset_left = 32.0
+offset_top = 245.0
+offset_right = 235.0
+offset_bottom = 424.0
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Cards" type="Node" parent="." unique_id=1264634451]
+
+[node name="Node2D" parent="Cards" unique_id=1390754283 instance=ExtResource("3_iaagk")]
+position = Vector2(571, 316)
+scale = Vector2(4, 4)
+TEXT = "FightGuy"
+
+[node name="GeminiGeneratedImage6Jb55v6Jb55v6Jb5" type="Sprite2D" parent="." unique_id=1518980923]
+top_level = true
+position = Vector2(576, 324.50003)
+scale = Vector2(0.4137931, 0.42252603)
+texture = ExtResource("4_tv3mf")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"pending_changes": {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "",
+"source_uid": -1
+}
+}
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -13,6 +13,9 @@ var control
 var PlayerNum
 var max_health = 100
 var current_knock = 1
+var 	laser_cooldown = false
+var bomb_cooldown = false
+var 	wh_cooldown = false
 var respawn_count = 0
 var anim_over = false
 var move_over = false
@@ -88,14 +91,23 @@ func _physics_process(delta: float) -> void:
 		await anim.animation_finished
 		anim_over = false
 	
-	if Input.is_action_just_pressed("E") and not anim_over and control == "Keyboard" or Input.is_action_just_pressed("Square1") and not anim_over and control == "C1" or Input.is_action_just_pressed("Square2") and not anim_over and control == "C2" or Input.is_action_just_pressed("Square3") and not anim_over and control == "C3" or Input.is_action_just_pressed("Square4") and not anim_over and control == "C4":
+	if Input.is_action_just_pressed("E") and not anim_over and not laser_cooldown and control == "Keyboard" or Input.is_action_just_pressed("Square1") and not anim_over and not laser_cooldown and control == "C1" or Input.is_action_just_pressed("Square2") and not anim_over and not laser_cooldown and control == "C2" or Input.is_action_just_pressed("Square3") and not anim_over and not laser_cooldown and control == "C3" or Input.is_action_just_pressed("Square4") and not anim_over and not laser_cooldown and control == "C4":
 		shoot_laser()
+		laser_cooldown = true
+		await get_tree().create_timer(3).timeout
+		laser_cooldown = false
 		
-	if Input.is_action_just_pressed("Q") and not anim_over and control == "Keyboard" or Input.is_action_just_pressed("Triangle1") and not anim_over and control == "C1" or Input.is_action_just_pressed("Triangle2") and not anim_over and control == "C2" or Input.is_action_just_pressed("Triangle3") and not anim_over and control == "C3" or Input.is_action_just_pressed("Triangle4") and not anim_over and control == "C4":
+	if Input.is_action_just_pressed("Q") and not anim_over and not bomb_cooldown and control == "Keyboard" or Input.is_action_just_pressed("Triangle1") and not anim_over and not bomb_cooldown and control == "C1" or Input.is_action_just_pressed("Triangle2") and not anim_over and not bomb_cooldown and control == "C2" or Input.is_action_just_pressed("Triangle3") and not anim_over and not bomb_cooldown and control == "C3" or Input.is_action_just_pressed("Triangle4") and not anim_over and not bomb_cooldown and control == "C4":
 		get_push_away_white_hole()
+		bomb_cooldown = true
+		await get_tree().create_timer(15).timeout
+		bomb_cooldown = false
 		
-	if Input.is_action_just_pressed("R") and not anim_over and control == "Keyboard" or Input.is_action_just_pressed("Circle1") and not anim_over and control == "C1" or Input.is_action_just_pressed("Circle2") and not anim_over and control == "C2" or Input.is_action_just_pressed("Circle3") and not anim_over and control == "C3" or Input.is_action_just_pressed("Circle4") and not anim_over and control == "C4":
+	if Input.is_action_just_pressed("R") and not anim_over and not wh_cooldown and control == "Keyboard" or Input.is_action_just_pressed("Circle1") and not anim_over  and not wh_cooldown and control == "C1" or Input.is_action_just_pressed("Circle2") and not anim_over  and not wh_cooldown and control == "C2" or Input.is_action_just_pressed("Circle3") and not anim_over and not wh_cooldown and control == "C3" or Input.is_action_just_pressed("Circle4") and not anim_over  and not wh_cooldown and control == "C4":
 		bomb_spawm()
+		wh_cooldown = true
+		await get_tree().create_timer(15).timeout
+		wh_cooldown = false
 		
 	if Input.is_action_just_pressed("BlockK") and not anim_over and control == "Keyboard" or Input.is_action_just_pressed("Block1") and not anim_over and control == "C1" or Input.is_action_just_pressed("Block2") and not anim_over and control == "C2" or Input.is_action_just_pressed("Block3") and not anim_over and control == "C3" or Input.is_action_just_pressed("Block4") and not anim_over and control == "C4":
 		anim_over = true
@@ -153,7 +165,7 @@ func _on_punch_hit_area_entered(area: Area2D) -> void:
 	if area.name == "Hurtbox" and area.owner != self and blocking == false:
 		
 		if area.owner.has_method("knock_mult"):
-			area.owner.knock_mult(10)
+			area.owner.knock_mult(2)
 			
 			
 			area.owner.move_over = true
@@ -177,8 +189,7 @@ func _on_punch_hit_area_entered(area: Area2D) -> void:
 			if area.owner.is_on_floor():
 				area.owner.velocity.x = 0
 				area.owner.velocity.y = 0
-			await get_tree().create_timer(1).timeout
-			#area.owner.move_over = false
+			area.owner.move_over = false
 			
 func shoot_laser():
 	
@@ -199,17 +210,17 @@ func shoot_laser():
 	laser.multiplier = current_knock
 	
 	get_tree().current_scene.add_child(laser)
+	
+
 
 func get_push_away_white_hole():
 	
 	var hole = WHITE_HOLE_SCENE.instantiate()
 	
 	hole.global_position = anim.global_position
-	
-	if white_hole_count < 1:
-		white_hole_count = 1
-		get_tree().current_scene.add_child(hole)
 
+	get_tree().current_scene.add_child(hole)
+	
 func bomb_spawm():
 	
 	var bomb = BOMB_HOLE_SCENE.instantiate()
@@ -219,10 +230,9 @@ func bomb_spawm():
 	bomb.global_position = global_position
 	
 	bomb.multiplier = current_knock
-	
-	if bomb_count < 1:
-		bomb_count = 1
-		get_tree().current_scene.add_child(bomb)
+
+	get_tree().current_scene.add_child(bomb)
+		
 
 func respawn():
 	

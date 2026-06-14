@@ -12,9 +12,10 @@ func _ready() -> void:
 	for i in range(len(Globals.PlayerList)):
 		var cursor_instance = Pointer.instantiate()
 		cursor_instance.set("PlayerNum", i)
-		cursor_instance.set("position", Vector2(get_viewport_rect().end.x/2, get_viewport_rect().end.y/2))
+		cursor_instance.set("position", Vector2(0, 0))
 		$CanvasLayer.add_child(cursor_instance)
-
+	if Input.is_action_just_pressed("R") or Input.is_action_just_pressed("Controller1Trigger"):
+		get_tree().change_scene_to_file("res://ArenaSelect.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,8 +25,7 @@ func _process(delta: float) -> void:
 	else:
 		$Button.release_focus()
 		
-
-
+	
 
 func _on_button_pressed() -> void:
 	
