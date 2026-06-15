@@ -149,16 +149,16 @@ shape = SubResource("RectangleShape2D_5mayn")
 one_way_collision = true
 
 [node name="Player1Spawn" parent="." unique_id=1044477353 instance=ExtResource("5_8w5c3")]
-position = Vector2(608, 375)
+position = Vector2(346, 362)
 
 [node name="Player2Spawn" parent="." unique_id=870532825 instance=ExtResource("6_b264y")]
-position = Vector2(658, 376)
+position = Vector2(391, 557)
 
 [node name="Player3Spawn" parent="." unique_id=977434403 instance=ExtResource("7_i3vbb")]
-position = Vector2(184, 205)
+position = Vector2(722, 560)
 
 [node name="Player4Spawn" parent="." unique_id=1436987136 instance=ExtResource("8_nhgjk")]
-position = Vector2(980, 194)
+position = Vector2(861, 329)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=583820530]
 position = Vector2(576, 324)

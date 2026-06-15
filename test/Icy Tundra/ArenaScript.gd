@@ -31,7 +31,7 @@ func _ready() -> void:
 	for i in range(len(Globals.PlayerList)):
 		var player_Instance
 		player_Instance = Player.instantiate()
-
+		
 		player_Instance.set("PlayerNum", i)
 		player_Instance.set("control", Globals.PlayerList[i])
 		print(Globals.PlayerList)
@@ -48,8 +48,12 @@ func _ready() -> void:
 			colour = Color(0.0, 1.0, 0.0, 1.0)
 		
 		player_Instance.set("modulate",colour) 
-		#control = Globals.PlayerList[PlayerNum]   
+		#control = Globals.PlayerList[PlayerNum] 
+		
+		
+		  
 		var ui_ins = ui_scene.instantiate()
+		ui_ins.set("modulate", colour)
 		
 		player_Instance.health_changed.connect(ui_ins.update_health_bar)
 		add_child(player_Instance)

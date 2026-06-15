@@ -50,7 +50,7 @@ func _ready() -> void:
 		player_Instance.set("modulate",colour) 
 		#control = Globals.PlayerList[PlayerNum]   
 		var ui_ins = ui_scene.instantiate()
-		
+		ui_ins.set("modulate", colour)
 		player_Instance.health_changed.connect(ui_ins.update_health_bar)
 		add_child(player_Instance)
 		$CanvasLayer/HBoxContainer.add_child(ui_ins)

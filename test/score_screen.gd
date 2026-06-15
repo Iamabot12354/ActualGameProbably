@@ -3,10 +3,10 @@ extends Node2D
 var Colours = [Color(1.0, 0.0, 0.0, 1.0), Color(1.0, 1.0, 0.0, 1.0), Color(0.0, 0.0, 1.0, 1.0), Color(0.0, 1.0, 0.0, 1.0)]
 
 @onready var Points = [$"1st Spawn", $"2nd Spawn", $"3rd Spawn"]
-
+var focus = 1
 func _ready() -> void:
+	$Button2.grab_focus()
 	
-
 	var podium_count = min(len(Globals.respawn_list), 3)
 		
 	var player_scene = preload("res://Players/Player.tscn")
@@ -34,6 +34,19 @@ func _ready() -> void:
 
 		add_child(instance)
 		
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("ShoulderL") or Input.is_action_just_pressed("ShoulderR"):
+		if focus == 1:
+			$Button.grab_focus()
+			focus = 2
+		else:
+			focus = 1
+			$Button2.grab_focus()
+
+
+
+
 
 func _on_button_2_pressed() -> void:
 	Globals.respawn_list = []
